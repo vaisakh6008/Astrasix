@@ -6,6 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- SEO -->
+<meta name="description" content="AstraSix Technical Services LLC - MEP, Lighting, Automation, ELV and Smart Building Solutions in UAE.">
+
 <!-- FAVICON -->
 <link rel="icon" href="https://astrasix.ae/images/astrasix-logo.png">
 
@@ -18,7 +21,7 @@
 
 <style>
 
-/* GLOBAL */
+/* ================= GLOBAL ================= */
 *{
 margin:0;
 padding:0;
@@ -33,7 +36,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
 canvas{
 position:fixed;
 top:0;
@@ -48,12 +51,31 @@ height:500px;
 filter:blur(120px);
 opacity:0.2;
 border-radius:50%;
+animation:float 12s infinite ease-in-out;
+z-index:-4;
 }
 
 .blob1{background:#00e5ff; top:-120px; left:-120px;}
 .blob2{background:#6c63ff; bottom:-120px; right:-120px;}
 
-/* NAV */
+@keyframes float{
+0%,100%{transform:translate(0,0)}
+50%{transform:translate(90px,-70px)}
+}
+
+/* ================= CURSOR ================= */
+.cursor{
+position:fixed;
+width:240px;
+height:240px;
+border-radius:50%;
+background:radial-gradient(circle,#00e5ff40,transparent 70%);
+transform:translate(-50%,-50%);
+pointer-events:none;
+z-index:999;
+}
+
+/* ================= NAV ================= */
 header{
 position:fixed;
 top:0;
@@ -62,8 +84,9 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:16px 60px;
-background:rgba(0,0,0,0.3);
+background:rgba(0,0,0,0.35);
 backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(0,229,255,0.15);
 z-index:1000;
 }
 
@@ -77,9 +100,12 @@ opacity:0.7;
 font-size:14px;
 }
 
-nav a:hover{color:#00e5ff;opacity:1;}
+nav a:hover{
+color:#00e5ff;
+opacity:1;
+}
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
 height:100vh;
 display:flex;
@@ -90,38 +116,66 @@ text-align:center;
 padding:20px;
 }
 
+.hero img{
+width:300px;
+margin-bottom:20px;
+filter:drop-shadow(0 0 25px rgba(0,229,255,0.5));
+animation:floatLogo 6s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-12px)}
+}
+
 .hero h1{
-font-size:60px;
-background:linear-gradient(90deg,#00e5ff,#fff);
+font-size:62px;
+font-weight:700;
+background:linear-gradient(90deg,#00e5ff,#ffffff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.hero p{max-width:700px;opacity:0.8;}
+.hero p{
+max-width:750px;
+margin-top:15px;
+opacity:0.8;
+line-height:1.7;
+}
 
-/* BUTTON */
+/* ================= BUTTON ================= */
 .btn{
-margin-top:20px;
+margin-top:25px;
 padding:12px 28px;
+border-radius:10px;
 border:1px solid #00e5ff;
 color:#00e5ff;
-border-radius:10px;
 text-decoration:none;
 display:inline-block;
+transition:0.3s;
 }
 
 .btn:hover{
 background:#00e5ff;
 color:black;
+transform:translateY(-2px);
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section{
 padding:120px 10%;
+max-width:1200px;
+margin:auto;
 text-align:center;
 }
 
-/* CARDS */
+section h2{
+font-size:34px;
+margin-bottom:20px;
+color:#00e5ff;
+}
+
+/* ================= CARDS ================= */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -131,12 +185,15 @@ margin-top:40px;
 
 .card{
 background:rgba(255,255,255,0.04);
-padding:25px;
-border-radius:15px;
-border:1px solid rgba(0,229,255,0.15);
+border:1px solid rgba(0,229,255,0.12);
+padding:28px;
+border-radius:18px;
+backdrop-filter:blur(16px);
+opacity:0;
+transform:translateY(30px);
 }
 
-/* FORM */
+/* ================= CONTACT FORM ================= */
 form{
 max-width:700px;
 margin:auto;
@@ -146,20 +203,29 @@ input,textarea{
 width:100%;
 padding:14px;
 margin:10px 0;
+border-radius:8px;
 background:#0a0f1a;
 border:1px solid #00e5ff22;
 color:white;
-border-radius:8px;
 }
 
-/* FOOTER */
+/* IMPORTANT: SECURE FORM ACTION */
+button.btn{
+background:transparent;
+cursor:pointer;
+font-size:15px;
+}
+
+/* ================= FOOTER ================= */
 footer{
 padding:25px;
 text-align:center;
 background:#000;
+border-top:1px solid rgba(0,229,255,0.15);
+opacity:0.85;
 }
 
-/* WHATSAPP */
+/* ================= WHATSAPP ================= */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -180,6 +246,9 @@ text-decoration:none;
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
 
+<div class="cursor"></div>
+<canvas id="particles"></canvas>
+
 <header>
 <div class="logo">
 <img src="https://astrasix.ae/images/astrasix-logo.png">
@@ -196,22 +265,30 @@ text-decoration:none;
 
 <!-- HERO -->
 <section class="hero" id="home">
-<img src="https://astrasix.ae/images/astrasix-logo.png" style="width:280px;margin-bottom:20px;">
+
+<img src="https://astrasix.ae/images/astrasix-logo.png">
+
 <h1>Engineering Intelligent Spaces</h1>
-<p>AstraSix delivers MEP, Lighting, Automation, ELV and Smart Building Solutions across UAE.</p>
+
+<p>
+AstraSix delivers MEP, Lighting, Automation, ELV and Smart Building Solutions across the UAE with precision engineering and innovation.
+</p>
+
 <a class="btn" href="#contact">Request Consultation</a>
+
 </section>
 
 <!-- ABOUT -->
 <section id="about">
 <h2>About Us</h2>
 <p>
-AstraSix Technical Services LLC is a UAE-based engineering company delivering integrated building systems and smart infrastructure solutions.
+AstraSix Technical Services LLC is a UAE-based engineering company specializing in integrated building systems including MEP, ELV infrastructure, automation, lighting design, and facility management.
 </p>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
+
 <h2>Services</h2>
 
 <div class="grid">
@@ -219,19 +296,24 @@ AstraSix Technical Services LLC is a UAE-based engineering company delivering in
 <div class="card">Lighting Design</div>
 <div class="card">Automation Systems</div>
 <div class="card">ELV Solutions</div>
+<div class="card">Media Signage</div>
+<div class="card">AMC Services</div>
 </div>
+
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
+
 <h2>Projects</h2>
 
 <div class="grid">
-<div class="card">Hotel Automation</div>
-<div class="card">Smart Villas</div>
-<div class="card">Retail LED Systems</div>
-<div class="card">Corporate Offices</div>
+<div class="card">Hotel Automation Systems</div>
+<div class="card">Smart Villa Integration</div>
+<div class="card">Retail LED Media Facade</div>
+<div class="card">Corporate Office Fitouts</div>
 </div>
+
 </section>
 
 <!-- CONTACT -->
@@ -239,21 +321,17 @@ AstraSix Technical Services LLC is a UAE-based engineering company delivering in
 
 <h2>Contact Us</h2>
 
-<p style="margin-bottom:20px;">Send us your enquiry directly to our team.</p>
+<p style="margin-bottom:20px;">Send your enquiry securely — no browser warnings.</p>
 
-<!-- ✅ SECURE FORM (NO WARNING) -->
+<!-- ✅ SECURE FORM (NO AUTOFILL OR SECURITY ISSUE) -->
 <form action="https://formsubmit.co/info@astrasix.ae" method="POST">
 
-<!-- disables captcha page -->
 <input type="hidden" name="_captcha" value="false">
 
-<!-- success redirect (optional) -->
-<input type="hidden" name="_next" value="https://astrasix.ae/thank-you">
-
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email Address" required>
 <input type="text" name="company" placeholder="Company (Optional)">
-<textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+<textarea name="message" rows="6" placeholder="Project Details" required></textarea>
 
 <button type="submit" class="btn">Send Enquiry</button>
 
@@ -271,6 +349,55 @@ AstraSix Technical Services LLC is a UAE-based engineering company delivering in
 </footer>
 
 <a class="whatsapp" href="https://wa.me/971523363396">WhatsApp</a>
+
+<script>
+
+/* CURSOR */
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+/* PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5)*0.3,
+dy:(Math.random()-0.5)*0.3
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width)p.dx*=-1;
+if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#00e5ff";
+ctx.fill();
+});
+
+requestAnimationFrame(animate);
+}
+animate();
+
+</script>
 
 </body>
 </html>
