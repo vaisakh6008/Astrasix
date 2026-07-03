@@ -248,15 +248,18 @@ canvas {
 <!-- CONTACT -->
 <section class="section" id="contact">
     <h2>Contact Us</h2>
-    
-    <p><strong>Email:</strong> <a href="mailto:info@astrasix.ae" style="color:#00e5ff">info@astrasix.ae</a></p>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/971506509738" style="color:#00e5ff">+971 50 650 9738</a></p>
-    
-    <input type="text" id="name" placeholder="Name" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <textarea id="message" rows="5" placeholder="Project Details" required></textarea>
 
-    <button class="btn" onclick="sendWhatsApp()">Send Message</button>
+    <p><strong>Email:</strong>
+        <a href="mailto:info@astrasix.ae" style="color:#00e5ff">
+            info@astrasix.ae
+        </a>
+    </p>
+
+    <p><strong>WhatsApp:</strong>
+        <a href="https://wa.me/971506509738" target="_blank" style="color:#00e5ff">
+            +971 50 650 9738
+        </a>
+    </p>
 </section>
 
 <footer>
@@ -264,48 +267,6 @@ canvas {
 </footer>
 
 <script>
-
-/* SEND TO WHATSAPP */
-
-function sendWhatsApp() {
-
-    const name = document.getElementById("name").value.trim();
-
-    const email = document.getElementById("email").value.trim();
-
-    const message = document.getElementById("message").value.trim();
-
-    if(name === "" || email === "" || message === ""){
-
-        alert("Please fill in all fields.");
-
-        return;
-
-    }
-
-    // Replace with your WhatsApp number
-
-    const phone = "971506509738";
-
-    const text =
-
-`*New Project Enquiry - AstraSix Technical Services LLC*
-
-👤 Name: ${name}
-
-📧 Email: ${email}
-
-📝 Project Details:
-
-${message}`;
-
-    const whatsappURL =
-
-        `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-
-    window.open(whatsappURL, "_blank");
-
-}
 
 /* CURSOR GLOW */
 const cursor = document.querySelector(".cursor");
