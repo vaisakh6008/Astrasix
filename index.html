@@ -5,66 +5,184 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AstraSix Technical Services LLC</title>
 
-<link rel="icon" type="image/png" sizes="32x32" href="https://astrasix.ae/images/astrasix-logo.png">
-<link rel="icon" type="image/png" sizes="192x192" href="https://astrasix.ae/images/astrasix-logo.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://astrasix.ae/images/astrasix-logo.png">
+<link rel="icon" href="https://astrasix.ae/images/astrasix-logo.png">
 <meta name="theme-color" content="#050505">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;scroll-behavior:smooth}
-body{background:#050505;color:#fff;overflow-x:hidden}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+scroll-behavior:smooth;
+}
 
-/* cursor */
-.cursor{position:fixed;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,#00e5ff55,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+body{
+background:#050505;
+color:#fff;
+overflow-x:hidden;
+}
 
-/* header */
+/* CURSOR */
+.cursor{
+position:fixed;
+width:250px;
+height:250px;
+border-radius:50%;
+background:radial-gradient(circle,#00e5ff55,transparent 70%);
+transform:translate(-50%,-50%);
+pointer-events:none;
+z-index:0;
+}
+
+/* HEADER */
 header{
-position:fixed;top:0;left:0;width:100%;
-display:flex;justify-content:space-between;align-items:center;
-padding:12px 40px;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 40px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.1);
 z-index:1000;
 }
 
-.logo{display:flex;align-items:center;gap:10px}
-.logo img{width:38px;height:38px;object-fit:contain}
-.logo h2{font-size:16px;color:#00e5ff;white-space:nowrap}
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
 
-nav a{color:#fff;margin-left:18px;text-decoration:none;font-size:14px;transition:.3s}
-nav a:hover{color:#00e5ff}
+.logo img{
+width:38px;
+height:38px;
+}
 
-/* hero */
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.hero h1{font-size:60px;color:#00e5ff;text-shadow:0 0 20px #00e5ff}
-.hero p{margin-top:15px;opacity:.8;max-width:700px}
-.btn{margin-top:25px;padding:12px 28px;border:1px solid #00e5ff;color:#00e5ff;text-decoration:none}
-.btn:hover{background:#00e5ff;color:#000}
+.logo h2{
+font-size:16px;
+color:#00e5ff;
+white-space:nowrap;
+}
 
-/* sections */
-.section{padding:100px 10%;text-align:center}
-.section h2{color:#00e5ff;margin-bottom:20px}
+nav a{
+color:#fff;
+margin-left:18px;
+text-decoration:none;
+font-size:14px;
+transition:0.3s;
+}
 
-/* grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:40px}
-.card{background:rgba(255,255,255,0.05);padding:30px;border-radius:12px;border:1px solid rgba(255,255,255,0.1)}
+nav a:hover{
+color:#00e5ff;
+}
 
-/* canvas */
-canvas{position:fixed;inset:0;z-index:-1}
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+}
 
-footer{text-align:center;padding:25px;background:#000;margin-top:50px}
+.hero h1{
+font-size:58px;
+color:#00e5ff;
+text-shadow:0 0 20px #00e5ff44;
+}
+
+.hero p{
+margin-top:15px;
+opacity:0.85;
+max-width:800px;
+font-size:16px;
+}
+
+.btn{
+margin-top:25px;
+padding:12px 28px;
+border:1px solid #00e5ff;
+color:#00e5ff;
+text-decoration:none;
+border-radius:8px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#00e5ff;
+color:#000;
+}
+
+/* SECTIONS */
+.section{
+padding:100px 10%;
+text-align:center;
+}
+
+.section h2{
+color:#00e5ff;
+margin-bottom:20px;
+}
+
+.section p{
+max-width:900px;
+margin:0 auto;
+opacity:0.85;
+line-height:1.6;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+backdrop-filter:blur(10px);
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(0,229,255,0.2);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:25px;
+background:#000;
+margin-top:50px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero h1{font-size:34px;}
+nav{display:none;}
+}
 </style>
 </head>
 
 <body>
 
 <div class="cursor"></div>
-<canvas id="particles"></canvas>
 
 <header>
 <div class="logo">
 <img src="https://astrasix.ae/images/astrasix-logo.png">
-<h2>AstraSix Technical Services LLC</h2>
+<h2>AstraSix</h2>
 </div>
 
 <nav>
@@ -76,93 +194,148 @@ footer{text-align:center;padding:25px;background:#000;margin-top:50px}
 </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
-<h1>Engineering Intelligent Spaces</h1>
-<p>MEP • Lighting • Automation • Media Signage • ELV Systems</p>
-<a class="btn" href="#contact">Start Project</a>
+<h1>Engineering Intelligent & Smart Built Environments</h1>
+<p>
+AstraSix Technical Services LLC delivers end-to-end engineering solutions across MEP, Lighting Design,
+Building Automation, ELV Systems, and Digital Signage across the UAE.
+</p>
+<a class="btn" href="#contact">Get a Quote</a>
 </section>
 
+<!-- ABOUT -->
 <section class="section" id="about">
 <h2>About AstraSix</h2>
-<p>AstraSix delivers integrated engineering solutions across UAE.</p>
+<p>
+AstraSix Technical Services LLC is a UAE-based engineering company specializing in integrated building systems,
+MEP solutions, lighting design, automation, ELV systems, and smart infrastructure development.
+<br><br>
+We focus on delivering high-quality, efficient, and reliable engineering solutions for commercial,
+residential, hospitality, and industrial sectors.
+</p>
 </section>
 
+<!-- WHY CHOOSE US -->
+<section class="section">
+<h2>Why Choose AstraSix</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Expert Engineering Team</h3>
+<p>Highly skilled professionals with real-world project experience.</p>
+</div>
+
+<div class="card">
+<h3>End-to-End Solutions</h3>
+<p>From design, supply, installation to maintenance support.</p>
+</div>
+
+<div class="card">
+<h3>Smart Integration</h3>
+<p>Modern automation and energy-efficient building systems.</p>
+</div>
+
+<div class="card">
+<h3>UAE Compliance</h3>
+<p>All projects meet local authority and international standards.</p>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
 <section class="section" id="services">
 <h2>Our Services</h2>
+
 <div class="grid">
-<div class="card"><h3>MEP Engineering</h3></div>
-<div class="card"><h3>Lighting Design</h3></div>
-<div class="card"><h3>Automation</h3></div>
-<div class="card"><h3>Media Signage</h3></div>
-<div class="card"><h3>ELV Systems</h3></div>
+
+<div class="card">
+<h3>MEP Engineering</h3>
+<p>Electrical, HVAC, and plumbing systems for all building types.</p>
+</div>
+
+<div class="card">
+<h3>Lighting Design</h3>
+<p>Architectural, façade, and interior lighting solutions.</p>
+</div>
+
+<div class="card">
+<h3>Building Automation</h3>
+<p>Smart control systems for energy efficiency and comfort.</p>
+</div>
+
+<div class="card">
+<h3>ELV Systems</h3>
+<p>CCTV, access control, intercom, and structured cabling.</p>
+</div>
+
+<div class="card">
+<h3>Digital Signage</h3>
+<p>LED screens, video walls, and commercial display systems.</p>
+</div>
+
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section class="section" id="projects">
 <h2>Featured Projects</h2>
+
+<p>Selected engineering and smart infrastructure projects delivered across UAE.</p>
+
 <div class="grid">
-<div class="card"><h3>Hotel Lighting System</h3></div>
-<div class="card"><h3>Smart Building Automation</h3></div>
-<div class="card"><h3>LED Media Facade</h3></div>
-<div class="card"><h3>Retail Digital Signage</h3></div>
+
+<div class="card">
+<h3>Luxury Hotel Lighting</h3>
+<p>Complete façade and interior lighting design.</p>
+</div>
+
+<div class="card">
+<h3>Smart Building Automation</h3>
+<p>Integrated HVAC, lighting, and energy systems.</p>
+</div>
+
+<div class="card">
+<h3>Retail LED Media Facade</h3>
+<p>High-impact digital branding installation.</p>
+</div>
+
+<div class="card">
+<h3>Corporate ELV Systems</h3>
+<p>CCTV, access control, and structured cabling.</p>
+</div>
+
 </div>
 </section>
 
+<!-- CONTACT -->
 <section class="section" id="contact">
 <h2>Contact Us</h2>
 
-<p><strong>Email:</strong>
-<a href="mailto:info@astrasix.ae?subject=Project%20Enquiry&body=Name:%0ACompany:%0AContact:%0AProject%20Details:%0A"
-style="color:#00e5ff">info@astrasix.ae</a></p>
+<p>We are ready to support your next engineering project.</p>
 
-<p><strong>WhatsApp:</strong>
-<a href="https://wa.me/971506509738" style="color:#00e5ff">+971 50 650 9738</a></p>
+<p style="margin-top:20px;">
+<strong>Email:</strong>
+<a href="mailto:info@astrasix.ae" style="color:#00e5ff">info@astrasix.ae</a>
+</p>
+
+<p>
+<strong>WhatsApp:</strong>
+<a href="https://wa.me/971506509738" style="color:#00e5ff">+971 50 650 9738</a>
+</p>
 </section>
 
-<footer>© 2026 AstraSix Technical Services LLC</footer>
+<footer>
+© 2026 AstraSix Technical Services LLC | All Rights Reserved
+</footer>
 
 <script>
 const cursor=document.querySelector(".cursor");
+
 document.addEventListener("mousemove",e=>{
 cursor.style.left=e.clientX+"px";
 cursor.style.top=e.clientY+"px";
 });
-
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-
-function resize(){
-canvas.width=innerWidth;
-canvas.height=innerHeight;
-}
-resize();
-window.addEventListener("resize",resize);
-
-let particles=[];
-for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-dx:(Math.random()-0.5),
-dy:(Math.random()-0.5)
-});
-}
-
-function animate(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-particles.forEach(p=>{
-p.x+=p.dx;p.y+=p.dy;
-if(p.x<0||p.x>canvas.width)p.dx*=-1;
-if(p.y<0||p.y>canvas.height)p.dy*=-1;
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fillStyle="#00e5ff";
-ctx.fill();
-});
-requestAnimationFrame(animate);
-}
-animate();
 </script>
 
 </body>
