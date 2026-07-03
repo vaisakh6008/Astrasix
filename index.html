@@ -9,6 +9,8 @@
 <meta name="theme-color" content="#050505">
 
 <style>
+
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -23,7 +25,7 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* CURSOR */
+/* CURSOR GLOW */
 .cursor{
 position:fixed;
 width:250px;
@@ -33,6 +35,13 @@ background:radial-gradient(circle,#00e5ff55,transparent 70%);
 transform:translate(-50%,-50%);
 pointer-events:none;
 z-index:0;
+}
+
+/* PARTICLES */
+canvas{
+position:fixed;
+inset:0;
+z-index:-2;
 }
 
 /* HEADER */
@@ -172,13 +181,19 @@ margin-top:50px;
 .hero h1{font-size:34px;}
 nav{display:none;}
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- PARTICLES BACKGROUND -->
+<canvas id="particles"></canvas>
+
+<!-- CURSOR -->
 <div class="cursor"></div>
 
+<!-- HEADER -->
 <header>
 <div class="logo">
 <img src="https://astrasix.ae/images/astrasix-logo.png">
@@ -198,8 +213,7 @@ nav{display:none;}
 <section class="hero" id="home">
 <h1>Engineering Intelligent & Smart Built Environments</h1>
 <p>
-AstraSix Technical Services LLC delivers end-to-end engineering solutions across MEP, Lighting Design,
-Building Automation, ELV Systems, and Digital Signage across the UAE.
+AstraSix delivers advanced MEP, Lighting Design, Automation, ELV Systems, and Digital Signage solutions across the UAE.
 </p>
 <a class="btn" href="#contact">Get a Quote</a>
 </section>
@@ -208,37 +222,34 @@ Building Automation, ELV Systems, and Digital Signage across the UAE.
 <section class="section" id="about">
 <h2>About AstraSix</h2>
 <p>
-AstraSix Technical Services LLC is a UAE-based engineering company specializing in integrated building systems,
-MEP solutions, lighting design, automation, ELV systems, and smart infrastructure development.
-<br><br>
-We focus on delivering high-quality, efficient, and reliable engineering solutions for commercial,
-residential, hospitality, and industrial sectors.
+AstraSix Technical Services LLC is a UAE-based engineering company delivering integrated building systems,
+smart automation, and infrastructure solutions for commercial and residential projects.
 </p>
 </section>
 
-<!-- WHY CHOOSE US -->
+<!-- WHY -->
 <section class="section">
-<h2>Why Choose AstraSix</h2>
+<h2>Why Choose Us</h2>
 
 <div class="grid">
 <div class="card">
-<h3>Expert Engineering Team</h3>
-<p>Highly skilled professionals with real-world project experience.</p>
+<h3>Expert Engineering</h3>
+<p>Experienced professionals delivering high-quality solutions.</p>
 </div>
 
 <div class="card">
-<h3>End-to-End Solutions</h3>
-<p>From design, supply, installation to maintenance support.</p>
+<h3>End-to-End Delivery</h3>
+<p>From design to installation and maintenance.</p>
 </div>
 
 <div class="card">
-<h3>Smart Integration</h3>
-<p>Modern automation and energy-efficient building systems.</p>
+<h3>Smart Systems</h3>
+<p>Advanced automation and energy-efficient solutions.</p>
 </div>
 
 <div class="card">
-<h3>UAE Compliance</h3>
-<p>All projects meet local authority and international standards.</p>
+<h3>UAE Standards</h3>
+<p>Fully compliant with local authority regulations.</p>
 </div>
 </div>
 </section>
@@ -248,32 +259,11 @@ residential, hospitality, and industrial sectors.
 <h2>Our Services</h2>
 
 <div class="grid">
-
-<div class="card">
-<h3>MEP Engineering</h3>
-<p>Electrical, HVAC, and plumbing systems for all building types.</p>
-</div>
-
-<div class="card">
-<h3>Lighting Design</h3>
-<p>Architectural, façade, and interior lighting solutions.</p>
-</div>
-
-<div class="card">
-<h3>Building Automation</h3>
-<p>Smart control systems for energy efficiency and comfort.</p>
-</div>
-
-<div class="card">
-<h3>ELV Systems</h3>
-<p>CCTV, access control, intercom, and structured cabling.</p>
-</div>
-
-<div class="card">
-<h3>Digital Signage</h3>
-<p>LED screens, video walls, and commercial display systems.</p>
-</div>
-
+<div class="card"><h3>MEP Engineering</h3><p>Electrical, HVAC & plumbing systems.</p></div>
+<div class="card"><h3>Lighting Design</h3><p>Architectural and façade lighting.</p></div>
+<div class="card"><h3>Automation</h3><p>Smart building control systems.</p></div>
+<div class="card"><h3>ELV Systems</h3><p>CCTV, access control & networking.</p></div>
+<div class="card"><h3>Digital Signage</h3><p>LED screens and media displays.</p></div>
 </div>
 </section>
 
@@ -281,30 +271,11 @@ residential, hospitality, and industrial sectors.
 <section class="section" id="projects">
 <h2>Featured Projects</h2>
 
-<p>Selected engineering and smart infrastructure projects delivered across UAE.</p>
-
 <div class="grid">
-
-<div class="card">
-<h3>Luxury Hotel Lighting</h3>
-<p>Complete façade and interior lighting design.</p>
-</div>
-
-<div class="card">
-<h3>Smart Building Automation</h3>
-<p>Integrated HVAC, lighting, and energy systems.</p>
-</div>
-
-<div class="card">
-<h3>Retail LED Media Facade</h3>
-<p>High-impact digital branding installation.</p>
-</div>
-
-<div class="card">
-<h3>Corporate ELV Systems</h3>
-<p>CCTV, access control, and structured cabling.</p>
-</div>
-
+<div class="card"><h3>Luxury Hotel Lighting</h3></div>
+<div class="card"><h3>Smart Building Automation</h3></div>
+<div class="card"><h3>Retail LED Facade</h3></div>
+<div class="card"><h3>Corporate ELV Systems</h3></div>
 </div>
 </section>
 
@@ -312,30 +283,66 @@ residential, hospitality, and industrial sectors.
 <section class="section" id="contact">
 <h2>Contact Us</h2>
 
-<p>We are ready to support your next engineering project.</p>
-
-<p style="margin-top:20px;">
-<strong>Email:</strong>
-<a href="mailto:info@astrasix.ae" style="color:#00e5ff">info@astrasix.ae</a>
-</p>
-
-<p>
-<strong>WhatsApp:</strong>
-<a href="https://wa.me/971506509738" style="color:#00e5ff">+971 50 650 9738</a>
-</p>
+<p>Email: <a style="color:#00e5ff" href="mailto:info@astrasix.ae">info@astrasix.ae</a></p>
+<p>WhatsApp: <a style="color:#00e5ff" href="https://wa.me/971506509738">+971 50 650 9738</a></p>
 </section>
 
 <footer>
-© 2026 AstraSix Technical Services LLC | All Rights Reserved
+© 2026 AstraSix Technical Services LLC
 </footer>
 
 <script>
-const cursor=document.querySelector(".cursor");
 
+/* CURSOR */
+const cursor=document.querySelector(".cursor");
 document.addEventListener("mousemove",e=>{
 cursor.style.left=e.clientX+"px";
 cursor.style.top=e.clientY+"px";
 });
+
+/* PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+function resize(){
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+}
+resize();
+window.addEventListener("resize",resize);
+
+let particles=[];
+
+for(let i=0;i<90;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width)p.dx*=-1;
+if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#00e5ff";
+ctx.fill();
+});
+
+requestAnimationFrame(animate);
+}
+animate();
+
 </script>
 
 </body>
