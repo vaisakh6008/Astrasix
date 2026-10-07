@@ -1,268 +1,2784 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AstraSix — Intelligent Environments | Technical Services UAE</title>
-<meta name="description" content="AstraSix delivers integrated MEP, architectural lighting, automation, ELV, digital signage and smart building solutions across the UAE.">
 <meta name="theme-color" content="#050505">
+
+<title>AstraSix — Intelligent Environments | Technical Services UAE</title>
+
+<meta name="description"
+      content="AstraSix delivers integrated MEP, architectural lighting, automation, ELV, digital signage and smart building solutions across the UAE.">
+
 <link rel="icon" href="https://astrasix.ae/images/astrasix-logo.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap');
-:root{--bg:#050505;--fg:#f5f6f7;--muted:#92959a;--line:#252729;--accent:#d8ff00;--soft:#101111}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:'DM Sans',Arial,sans-serif;overflow-x:hidden;line-height:1.55}
-a{color:inherit;text-decoration:none}
-.noise{position:fixed;inset:0;z-index:-1;opacity:.018;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:23px 34px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(5,5,5,.72),transparent);backdrop-filter:blur(3px)}
-.brand{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600}
-.brand img{width:36px;height:36px;object-fit:contain;filter:brightness(0) invert(1)}
-nav{display:flex;gap:28px;font-size:12px;color:#ddd}
-nav a{position:relative}
-nav a:after{content:'';position:absolute;left:0;bottom:-7px;width:0;height:1px;background:white;transition:.3s}
-nav a:hover:after{width:100%}
-.menu{display:none;background:none;border:0;color:white;font-size:20px}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5.5vw 7vh;position:relative}
-.hero-kicker{font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:#b7b9bc;margin-bottom:21px}
-.hero h1{font-family:Manrope,sans-serif;font-size:clamp(54px,10.5vw,155px);font-weight:500;letter-spacing:-.078em;line-height:.82;max-width:1250px}
-.hero h1 em,.accent{font-style:normal;color:var(--accent)}
-.hero-bottom{display:flex;justify-content:space-between;align-items:end;margin-top:52px;max-width:1160px}
-.hero-copy{font-size:15px;line-height:1.65;color:#a8aaae;max-width:520px}
-.scroll{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#9b9ca0;display:flex;align-items:center;gap:12px}
-.scroll i{display:block;width:60px;height:1px;background:#707277}
-.section{padding:150px 5.5vw;position:relative}
-.section-title{display:grid;grid-template-columns:1fr 2fr;gap:40px;border-top:1px solid var(--line);padding-top:18px}
-.index{font-size:10px;color:#777;text-transform:uppercase;letter-spacing:2px}
-.section-title h2{font-family:Manrope,sans-serif;font-size:clamp(40px,6.3vw,92px);font-weight:500;letter-spacing:-.068em;line-height:.94}
-.intro{max-width:720px;margin:45px 0 0 auto;color:#9b9da1;font-size:17px;line-height:1.7}
-.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:95px;border:1px solid var(--line)}
-.mini-card{background:rgba(8,9,9,.9);padding:34px;min-height:230px}
-.mini-card .no{font-size:10px;color:#65676a;letter-spacing:1.5px}
-.mini-card h3{font-family:Manrope;font-size:26px;font-weight:500;letter-spacing:-.04em;margin-top:46px}
-.mini-card p{color:#898c91;font-size:13px;margin-top:13px;max-width:330px}
-.services{padding-top:100px}
-.service{min-height:76vh;border-top:1px solid var(--line);display:grid;grid-template-columns:75px 1.08fr 1fr;gap:35px;align-items:center;position:relative}
-.service:last-child{border-bottom:1px solid var(--line)}
-.service-no{font-size:11px;color:#707277;align-self:start;padding-top:32px}
-.service-visual{height:56vh;min-height:340px;position:relative;overflow:hidden;background:#0c0d0d;border:1px solid #1d1f20}
-.service-visual:after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 55% 45%,rgba(216,255,0,.10),transparent 38%),linear-gradient(135deg,transparent,rgba(255,255,255,.025));pointer-events:none}
-..service-info{padding-right:7vw}
-.service-info .label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#76797e;margin-bottom:22px}
-.service-info h3{font-family:Manrope;font-size:clamp(35px,4.7vw,70px);font-weight:500;letter-spacing:-.065em;line-height:.93}
-.service-info p{margin-top:25px;color:#91949a;line-height:1.7;max-width:470px}
-.service-points{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
-.service-points span{border:1px solid #292b2d;border-radius:999px;padding:7px 10px;color:#8f9297;font-size:10px}
-.service-info a{display:inline-flex;margin-top:32px;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;align-items:center;gap:15px}
-.service-info a span{font-size:18px;transition:.25s}
-.service-info a:hover span{transform:translateX(6px)}
-.about{background:#080909}
-.process{margin-top:95px}
-.step{display:grid;grid-template-columns:75px 1fr 1fr;border-top:1px solid var(--line);padding:30px 0;min-height:165px}
-.step:last-child{border-bottom:1px solid var(--line)}
-.step-no{color:#666;font-size:10px}
-.step h3{font-family:Manrope;font-size:29px;font-weight:500;letter-spacing:-.035em}
-.step p{color:#8f9297;max-width:500px;line-height:1.65}
-.sectors{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:80px;border:1px solid var(--line)}
-.sector{background:#080909;padding:28px;min-height:180px}
-.sector span{font-size:10px;color:#686b70;text-transform:uppercase;letter-spacing:1.7px}
-.sector h3{font-family:Manrope;font-size:23px;font-weight:500;margin-top:42px;letter-spacing:-.035em}
-.sector p{font-size:12px;color:#83868b;margin-top:8px}
-.projects{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:85px}
-.project{height:64vh;min-height:430px;position:relative;overflow:hidden;background:#111;border:1px solid #1e2021}
-.project.small{height:31vh;min-height:205px}
-.project-bg{position:absolute;inset:0;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
-.project:hover .project-bg{transform:scale(1.06)}
-.project.one .project-bg{background:#111}
-.project.two .project-bg{background:#111}
-.project.three .project-bg{background:#111}
-.project-content{position:absolute;inset:auto 30px 28px 30px;z-index:2}
-.project-content .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb}
-.project-content h3{font-family:Manrope;font-size:clamp(25px,3vw,45px);font-weight:500;letter-spacing:-.05em;margin-top:8px}
-.project-content p{font-size:12px;color:#bbb;margin-top:5px}
-.note{margin-top:20px;color:#666;font-size:10px;letter-spacing:.4px}
-.cta{padding:190px 5.5vw;min-height:82vh;display:flex;align-items:center}
-.cta-inner{width:100%;border-top:1px solid var(--line);padding-top:25px}
-.cta h2{font-family:Manrope;font-weight:500;font-size:clamp(52px,10vw,148px);letter-spacing:-.082em;line-height:.82;max-width:1150px}
-.cta-row{display:flex;justify-content:space-between;align-items:center;margin-top:70px}
-.cta-text{color:#85888d;font-size:14px;max-width:400px;line-height:1.6}
-.cta-button{border:1px solid #5f6265;border-radius:50%;width:150px;height:150px;display:grid;place-items:center;text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;transition:.35s}
-.cta-button:hover{background:var(--accent);border-color:var(--accent);color:#050505;transform:rotate(-12deg)}
-footer{padding:30px 5.5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#686b70;font-size:11px}
-.reveal{opacity:0;transform:translateY(35px);transition:opacity .9s ease,transform .9s ease}
-.reveal.in{opacity:1;transform:none}
+:root{
+    --bg:#050505;
+    --fg:#f5f6f7;
+    --muted:#92959a;
+    --line:#252729;
+    --accent:#d8ff00;
+    --soft:#101111;
+    --glass:rgba(8,9,9,.62);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:'DM Sans',Arial,sans-serif;
+    overflow-x:hidden;
+    line-height:1.55;
+}
+
+body.menu-open{
+    overflow:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+::selection{
+    background:var(--accent);
+    color:#050505;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.noise{
+    position:fixed;
+    inset:0;
+    z-index:9998;
+    opacity:.018;
+    pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    padding:23px 34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(5,5,5,.78),
+        transparent
+    );
+
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.1px;
+}
+
+.brand img{
+    width:36px;
+    height:36px;
+    object-fit:contain;
+    filter:brightness(0) invert(1);
+}
+
+nav{
+    display:flex;
+    gap:28px;
+    font-size:12px;
+    color:#ddd;
+}
+
+nav a{
+    position:relative;
+}
+
+nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:1px;
+    background:white;
+    transition:.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after{
+    width:100%;
+}
+
+.menu{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    width:40px;
+    height:40px;
+}
+
+/* =========================================================
+   3D HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:0 5.5vw 7vh;
+
+    position:relative;
+    isolation:isolate;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,5,5,.92) 0%,
+            rgba(5,5,5,.58) 48%,
+            rgba(5,5,5,.18) 100%
+        ),
+        linear-gradient(
+            0deg,
+            #050505 0%,
+            transparent 55%
+        );
+}
+
+/* Three.js canvas */
+
+#hero3d{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+    display:block;
+}
+
+/* subtle image fallback */
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    z-index:-3;
+
+    background:
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=80')
+        center/cover no-repeat;
+
+    opacity:.16;
+    filter:saturate(.4);
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at 72% 42%,
+            rgba(216,255,0,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 75% 55%,
+            rgba(255,255,255,.05),
+            transparent 28%
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+}
+
+.hero-kicker{
+    font-size:10px;
+    letter-spacing:2.4px;
+    text-transform:uppercase;
+    color:#b7b9bc;
+    margin-bottom:21px;
+}
+
+.hero h1{
+    font-family:Manrope,sans-serif;
+    font-size:clamp(54px,10.5vw,155px);
+    font-weight:500;
+    letter-spacing:-.078em;
+    line-height:.82;
+    max-width:1250px;
+}
+
+.hero h1 em,
+.accent{
+    font-style:normal;
+    color:var(--accent);
+}
+
+.hero-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+
+    margin-top:52px;
+    max-width:1160px;
+}
+
+.hero-copy{
+    font-size:15px;
+    line-height:1.65;
+    color:#a8aaae;
+    max-width:520px;
+}
+
+.scroll{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#9b9ca0;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.scroll i{
+    display:block;
+    width:60px;
+    height:1px;
+    background:#707277;
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.section{
+    padding:150px 5.5vw;
+    position:relative;
+}
+
+.section-title{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:40px;
+
+    border-top:1px solid var(--line);
+    padding-top:18px;
+}
+
+.index{
+    font-size:10px;
+    color:#777;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-family:Manrope,sans-serif;
+    font-size:clamp(40px,6.3vw,92px);
+    font-weight:500;
+    letter-spacing:-.068em;
+    line-height:.94;
+}
+
+.intro{
+    max-width:720px;
+    margin:45px 0 0 auto;
+
+    color:#9b9da1;
+    font-size:17px;
+    line-height:1.7;
+}
+
+/* =========================================================
+   ABOUT CARDS
+========================================================= */
+
+.mini-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+
+    background:var(--line);
+    margin-top:95px;
+    border:1px solid var(--line);
+}
+
+.mini-card{
+    background:rgba(8,9,9,.9);
+    padding:34px;
+    min-height:230px;
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+}
+
+.mini-card:hover{
+    transform:translateY(-5px);
+    background:#101111;
+}
+
+.mini-card .no{
+    font-size:10px;
+    color:#65676a;
+    letter-spacing:1.5px;
+}
+
+.mini-card h3{
+    font-family:Manrope;
+    font-size:26px;
+    font-weight:500;
+    letter-spacing:-.04em;
+    margin-top:46px;
+}
+
+.mini-card p{
+    color:#898c91;
+    font-size:13px;
+    margin-top:13px;
+    max-width:330px;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+    padding-top:100px;
+}
+
+.service{
+    min-height:76vh;
+
+    border-top:1px solid var(--line);
+
+    display:grid;
+    grid-template-columns:75px 1.08fr 1fr;
+    gap:35px;
+
+    align-items:center;
+    position:relative;
+}
+
+.service:last-child{
+    border-bottom:1px solid var(--line);
+}
+
+.service-no{
+    font-size:11px;
+    color:#707277;
+    align-self:start;
+    padding-top:32px;
+}
+
+.service-visual{
+    height:56vh;
+    min-height:340px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:#0c0d0d;
+    border:1px solid #1d1f20;
+
+    isolation:isolate;
+}
+
+.service-visual::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:.78;
+    filter:saturate(.72);
+
+    transform:scale(1.015);
+
+    transition:
+        transform 1.2s cubic-bezier(.2,.7,.2,1),
+        filter .7s ease;
+}
+
+.service:hover .service-visual::before{
+    transform:scale(1.08);
+    filter:saturate(1);
+}
+
+.service-visual::after{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.03),
+            rgba(0,0,0,.48)
+        );
+
+    pointer-events:none;
+}
+
+.service:nth-child(1) .service-visual::before{
+    background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1300&q=85');
+}
+
+.service:nth-child(2) .service-visual::before{
+    background-image:url('https://images.unsplash.com/photo-1760537323670-2184cb378dbf?auto=format&fit=crop&w=1300&q=85');
+}
+
+.service:nth-child(3) .service-visual::before{
+    background-image:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1300&q=85');
+}
+
+.service:nth-child(4) .service-visual::before{
+    background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1300&q=85');
+}
+
+.service:nth-child(5) .service-visual::before{
+    background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1300&q=85');
+}
+
+.photo-label{
+    position:absolute;
+    z-index:3;
+
+    left:20px;
+    bottom:18px;
+
+    font-size:9px;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    color:#fff;
+
+    text-shadow:0 1px 8px rgba(0,0,0,.8);
+}
+
+.service-info{
+    padding-right:7vw;
+}
+
+.service-info .label{
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#76797e;
+    margin-bottom:22px;
+}
+
+.service-info h3{
+    font-family:Manrope;
+    font-size:clamp(35px,4.7vw,70px);
+    font-weight:500;
+    letter-spacing:-.065em;
+    line-height:.93;
+}
+
+.service-info p{
+    margin-top:25px;
+    color:#91949a;
+    line-height:1.7;
+    max-width:470px;
+}
+
+.service-points{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:24px;
+}
+
+.service-points span{
+    border:1px solid #292b2d;
+    border-radius:999px;
+    padding:7px 10px;
+
+    color:#8f9297;
+    font-size:10px;
+
+    transition:.3s ease;
+}
+
+.service-points span:hover{
+    color:var(--accent);
+    border-color:var(--accent);
+}
+
+.service-info a{
+    display:inline-flex;
+
+    margin-top:32px;
+
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.8px;
+
+    align-items:center;
+    gap:15px;
+}
+
+.service-info a span{
+    font-size:18px;
+    transition:.25s;
+}
+
+.service-info a:hover span{
+    transform:translateX(6px);
+}
+
+/* =========================================================
+   APPROACH
+========================================================= */
+
+.about{
+    background:#080909;
+}
+
+.process{
+    margin-top:95px;
+}
+
+.step{
+    display:grid;
+    grid-template-columns:75px 1fr 1fr;
+
+    border-top:1px solid var(--line);
+
+    padding:30px 0;
+    min-height:165px;
+}
+
+.step:last-child{
+    border-bottom:1px solid var(--line);
+}
+
+.step-no{
+    color:#666;
+    font-size:10px;
+}
+
+.step h3{
+    font-family:Manrope;
+    font-size:29px;
+    font-weight:500;
+    letter-spacing:-.035em;
+}
+
+.step p{
+    color:#8f9297;
+    max-width:500px;
+    line-height:1.65;
+}
+
+/* =========================================================
+   SECTORS
+========================================================= */
+
+.sectors{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+
+    background:var(--line);
+    margin-top:80px;
+    border:1px solid var(--line);
+}
+
+.sector{
+    background:#080909;
+    padding:28px;
+    min-height:180px;
+
+    transition:.35s ease;
+}
+
+.sector:hover{
+    background:#101111;
+    transform:translateY(-4px);
+}
+
+.sector span{
+    font-size:10px;
+    color:#686b70;
+    text-transform:uppercase;
+    letter-spacing:1.7px;
+}
+
+.sector h3{
+    font-family:Manrope;
+    font-size:23px;
+    font-weight:500;
+    margin-top:42px;
+    letter-spacing:-.035em;
+}
+
+.sector p{
+    font-size:12px;
+    color:#83868b;
+    margin-top:8px;
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:16px;
+
+    margin-top:85px;
+}
+
+.project{
+    position:relative;
+    overflow:hidden;
+
+    height:64vh;
+    min-height:430px;
+
+    background:#111;
+    border:1px solid #1e2021;
+}
+
+.project-stack{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.project.small{
+    height:calc(50% - 8px);
+    min-height:205px;
+}
+
+.project-bg{
+    position:absolute;
+    inset:0;
+
+    transition:
+        transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.project:hover .project-bg{
+    transform:scale(1.06);
+}
+
+.project.one .project-bg{
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.8),
+            transparent 75%
+        ),
+        url('https://images.unsplash.com/photo-1760537323670-2184cb378dbf?auto=format&fit=crop&w=1600&q=85')
+        center/cover;
+}
+
+.project.two .project-bg{
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.75),
+            transparent 80%
+        ),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85')
+        center/cover;
+}
+
+.project.three .project-bg{
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.78),
+            transparent 80%
+        ),
+        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85')
+        center/cover;
+}
+
+.project-content{
+    position:absolute;
+    inset:auto 30px 28px 30px;
+    z-index:2;
+
+    background:linear-gradient(
+        0deg,
+        rgba(0,0,0,.3),
+        transparent
+    );
+}
+
+.project-content .tag{
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#bbb;
+}
+
+.project-content h3{
+    font-family:Manrope;
+    font-size:clamp(25px,3vw,45px);
+    font-weight:500;
+    letter-spacing:-.05em;
+    margin-top:8px;
+}
+
+.project-content p{
+    font-size:12px;
+    color:#bbb;
+    margin-top:5px;
+}
+
+.note{
+    margin-top:20px;
+    color:#666;
+    font-size:10px;
+    letter-spacing:.4px;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    padding:190px 5.5vw;
+    min-height:82vh;
+
+    display:flex;
+    align-items:center;
+}
+
+.cta-inner{
+    width:100%;
+    border-top:1px solid var(--line);
+    padding-top:25px;
+}
+
+.cta h2{
+    font-family:Manrope;
+    font-weight:500;
+
+    font-size:clamp(52px,10vw,148px);
+
+    letter-spacing:-.082em;
+    line-height:.82;
+
+    max-width:1150px;
+}
+
+.cta h2 em{
+    color:var(--accent);
+    font-style:normal;
+}
+
+.cta-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-top:70px;
+}
+
+.cta-text{
+    color:#85888d;
+    font-size:14px;
+    max-width:400px;
+    line-height:1.6;
+}
+
+.cta-button{
+    border:1px solid #5f6265;
+    border-radius:50%;
+
+    width:150px;
+    height:150px;
+
+    display:grid;
+    place-items:center;
+
+    text-align:center;
+
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+
+    transition:.35s ease;
+}
+
+.cta-button:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#050505;
+    transform:rotate(-12deg) scale(1.04);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:30px 5.5vw;
+
+    border-top:1px solid var(--line);
+
+    display:flex;
+    justify-content:space-between;
+
+    color:#686b70;
+    font-size:11px;
+}
+
+.footer-right{
+    text-align:right;
+}
+
+.footer-right a{
+    transition:.3s ease;
+}
+
+.footer-right a:hover{
+    color:#fff;
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal.in{
+    opacity:1;
+    transform:none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+    .service{
+        grid-template-columns:55px 1fr 1fr;
+        gap:22px;
+    }
+
+    .service-info{
+        padding-right:2vw;
+    }
+
+    .sectors{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
 @media(max-width:900px){
- .mini-grid,.sectors{grid-template-columns:1fr 1fr}
+
+    .mini-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .sectors{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .project{
+        height:55vh;
+    }
+
+    .project-stack{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .project.small{
+        height:35vh;
+    }
 }
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:800px){
- header{padding:17px 20px;background:rgba(5,5,5,.75)}.brand span{display:none}nav{display:none}.menu{display:block}
- .hero{padding:0 20px 45px}.hero-bottom{display:block}.scroll{margin-top:28px}
- .section{padding:100px 20px}.section-title{grid-template-columns:1fr}.intro{margin-left:0}
- .mini-grid,.sectors{grid-template-columns:1fr}.mini-card{min-height:190px}
- .service{grid-template-columns:42px 1fr;gap:15px;padding:45px 0}.service-visual{grid-column:2;height:45vh;min-height:260px}.service-info{grid-column:2;padding:0}
- .service-no{grid-row:1 / span 2}.projects{grid-template-columns:1fr;margin-top:50px}.project{height:55vh}.project.small{height:35vh}
- .step{grid-template-columns:45px 1fr;gap:15px}.step p{grid-column:2;margin-top:15px}
- .cta{padding:120px 20px}.cta-row{align-items:flex-start}.cta-button{width:110px;height:110px}
- footer{padding:25px 20px;display:block}.footer-right{margin-top:8px}
+
+    header{
+        padding:17px 20px;
+        background:rgba(5,5,5,.82);
+    }
+
+    .brand span{
+        display:none;
+    }
+
+    nav{
+        display:none;
+
+        position:absolute;
+
+        top:68px;
+        right:15px;
+
+        width:210px;
+
+        padding:20px;
+
+        background:rgba(8,8,8,.96);
+
+        border:1px solid #333;
+
+        flex-direction:column;
+        gap:18px;
+
+        box-shadow:
+            0 20px 50px rgba(0,0,0,.5);
+    }
+
+    nav.show{
+        display:flex;
+    }
+
+    nav a{
+        padding:4px 0;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        padding:0 20px 45px;
+        min-height:100svh;
+    }
+
+    .hero::before{
+        opacity:.1;
+    }
+
+    .hero-bottom{
+        display:block;
+    }
+
+    .scroll{
+        margin-top:28px;
+    }
+
+    .section{
+        padding:100px 20px;
+    }
+
+    .section-title{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .intro{
+        margin-left:0;
+        font-size:15px;
+    }
+
+    .mini-grid,
+    .sectors{
+        grid-template-columns:1fr;
+    }
+
+    .mini-card{
+        min-height:190px;
+    }
+
+    .service{
+        grid-template-columns:42px 1fr;
+        gap:15px;
+
+        padding:45px 0;
+    }
+
+    .service-visual{
+        grid-column:2;
+
+        height:45vh;
+        min-height:260px;
+    }
+
+    .service-info{
+        grid-column:2;
+        padding:0;
+    }
+
+    .service-no{
+        grid-row:1 / span 2;
+    }
+
+    .step{
+        grid-template-columns:45px 1fr;
+        gap:15px;
+    }
+
+    .step p{
+        grid-column:2;
+        margin-top:15px;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+        margin-top:50px;
+    }
+
+    .project{
+        height:55vh;
+    }
+
+    .project-stack{
+        grid-template-columns:1fr;
+    }
+
+    .project.small{
+        height:35vh;
+    }
+
+    .cta{
+        padding:120px 20px;
+    }
+
+    .cta-row{
+        align-items:flex-start;
+    }
+
+    .cta-button{
+        width:110px;
+        height:110px;
+        flex-shrink:0;
+    }
+
+    footer{
+        padding:25px 20px;
+        display:block;
+    }
+
+    .footer-right{
+        text-align:left;
+        margin-top:8px;
+    }
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
 
-/* Photography-led visual treatment inspired by the reference's service imagery */
-.hero{background:
- linear-gradient(90deg,rgba(5,5,5,.88) 0%,rgba(5,5,5,.54) 54%,rgba(5,5,5,.25) 100%),
- linear-gradient(0deg,#050505 0%,transparent 45%),
- url('https://images.unsplash.com/photo-1746774191521-ce61058add7b?auto=format&fit=crop&w=2200&q=85') center 38%/cover no-repeat}
-.service-visual{background-size:cover;background-position:center}
-.service-visual:before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;opacity:.78;filter:saturate(.72);transform:scale(1.015)}
-.service:nth-of-type(1) .service-visual:before{background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1300&q=85')}
-.service:nth-of-type(2) .service-visual:before{background-image:url('https://images.unsplash.com/photo-1760537323670-2184cb378dbf?auto=format&fit=crop&w=1300&q=85')}
-.service:nth-of-type(3) .service-visual:before{background-image:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1300&q=85')}
-.service:nth-of-type(4) .service-visual:before{background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1300&q=85')}
-.service:nth-of-type(5) .service-visual:before{background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1300&q=85')}
-.project.one .project-bg{background:
- linear-gradient(0deg,rgba(0,0,0,.8),transparent 75%),
- url('https://images.unsplash.com/photo-1760537323670-2184cb378dbf?auto=format&fit=crop&w=1600&q=85') center/cover}
-.project.two .project-bg{background:
- linear-gradient(0deg,rgba(0,0,0,.75),transparent 80%),
- url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85') center/cover}
-.project.three .project-bg{background:
- linear-gradient(0deg,rgba(0,0,0,.78),transparent 80%),
- url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85') center/cover}
-.project-content{background:linear-gradient(0deg,rgba(0,0,0,.3),transparent)}
-@media(max-width:800px){.hero{background-position:58% center}}
+/* =========================================================
+   SMALL PHONES
+========================================================= */
 
+@media(max-width:480px){
 
-.photo-label{position:absolute;z-index:3;left:20px;bottom:18px;font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8)}
-.service-visual:after{background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.38));}
+    .hero h1{
+        font-size:clamp(48px,16vw,76px);
+    }
 
+    .hero-copy{
+        font-size:14px;
+    }
+
+    .section-title h2{
+        font-size:clamp(38px,12vw,60px);
+    }
+
+    .service-info h3{
+        font-size:clamp(34px,11vw,55px);
+    }
+
+    .cta h2{
+        font-size:clamp(48px,15vw,72px);
+    }
+
+    .cta-row{
+        gap:25px;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+    }
+
+    .reveal{
+        opacity:1;
+        transform:none;
+    }
+
+    #hero3d{
+        display:none;
+    }
+}
 </style>
 </head>
+
 <body>
+
 <div class="noise"></div>
-<noscript>
-<style>
-.reveal{opacity:1!important;transform:none!important}
-@media(max-width:800px){nav{display:flex;flex-direction:column;gap:14px}}
-</style>
-</noscript>
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
 <header>
-<a href="#home" class="brand"><img src="https://astrasix.ae/images/astrasix-logo.png" alt="AstraSix"><span>AstraSix Technical Services LLC</span></a>
-<nav id="nav"><a href="#services">Services</a><a href="#about">About</a><a href="#approach">Approach</a><a href="#sectors">Sectors</a><a href="#contact">Contact</a></nav>
-<button class="menu" id="menu" aria-label="Menu">☰</button>
+
+    <a href="#home" class="brand">
+        <img
+            src="https://astrasix.ae/images/astrasix-logo.png"
+            alt="AstraSix">
+        <span>AstraSix Technical Services LLC</span>
+    </a>
+
+    <nav id="nav">
+
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#approach">Approach</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#projects">Experience</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <button
+        class="menu"
+        id="menu"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false">
+        ☰
+    </button>
+
 </header>
 
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
 <main>
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
 <section class="hero" id="home">
-<div class="hero-kicker">Dubai · UAE / Engineering · Technology · Experience</div>
-<h1>We build <em>intelligent</em><br>environments.</h1>
-<div class="hero-bottom">
-<p class="hero-copy">AstraSix brings engineering, light, automation and connected technology together to create smarter, more expressive spaces — from building infrastructure to the experiences people see, feel and interact with.</p>
-<div class="scroll"><i></i> Explore AstraSix</div>
-</div>
+
+    <!-- Real interactive WebGL / Three.js scene -->
+    <canvas id="hero3d"></canvas>
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Dubai · UAE / Engineering · Technology · Experience
+        </div>
+
+        <h1>
+            We build
+            <em>intelligent</em><br>
+            environments.
+        </h1>
+
+        <div class="hero-bottom">
+
+            <p class="hero-copy">
+                AstraSix brings engineering, light, automation and connected
+                technology together to create smarter, more expressive spaces —
+                from building infrastructure to the experiences people see,
+                feel and interact with.
+            </p>
+
+            <div class="scroll">
+                <i></i>
+                Explore AstraSix
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
 
 <section class="section reveal" id="about">
-<div class="section-title"><div class="index">01 / About</div><h2>One technical partner for the systems behind exceptional spaces.</h2></div>
-<p class="intro">AstraSix Technical Services LLC is a UAE-based engineering company focused on integrated building systems, smart automation and technology-led environments. We connect practical engineering with visual and digital systems so projects can be planned, delivered and supported as one coordinated technical environment.</p>
-<div class="mini-grid">
-<article class="mini-card"><div class="no">01 / INTEGRATION</div><h3>Systems that speak to each other.</h3><p>MEP, lighting, automation, ELV and digital systems considered together instead of as disconnected layers.</p></article>
-<article class="mini-card"><div class="no">02 / DELIVERY</div><h3>From concept to commissioning.</h3><p>Technical planning, supply, installation, configuration and support shaped around the needs of each project.</p></article>
-<article class="mini-card"><div class="no">03 / EXPERIENCE</div><h3>Performance with presence.</h3><p>Infrastructure should work quietly while lighting, media and controls create the experience people remember.</p></article>
-</div>
+
+    <div class="section-title">
+
+        <div class="index">
+            01 / About
+        </div>
+
+        <h2>
+            One technical partner for the systems behind exceptional spaces.
+        </h2>
+
+    </div>
+
+    <p class="intro">
+        AstraSix Technical Services LLC is a UAE-based engineering company
+        focused on integrated building systems, smart automation and
+        technology-led environments. We connect practical engineering with
+        visual and digital systems so projects can be planned, delivered and
+        supported as one coordinated technical environment.
+    </p>
+
+    <div class="mini-grid">
+
+        <article class="mini-card">
+
+            <div class="no">01 / INTEGRATION</div>
+
+            <h3>
+                Systems that speak to each other.
+            </h3>
+
+            <p>
+                MEP, lighting, automation, ELV and digital systems considered
+                together instead of as disconnected layers.
+            </p>
+
+        </article>
+
+        <article class="mini-card">
+
+            <div class="no">02 / DELIVERY</div>
+
+            <h3>
+                From concept to commissioning.
+            </h3>
+
+            <p>
+                Technical planning, supply, installation, configuration and
+                support shaped around the needs of each project.
+            </p>
+
+        </article>
+
+        <article class="mini-card">
+
+            <div class="no">03 / EXPERIENCE</div>
+
+            <h3>
+                Performance with presence.
+            </h3>
+
+            <p>
+                Infrastructure should work quietly while lighting, media and
+                controls create the experience people remember.
+            </p>
+
+        </article>
+
+    </div>
+
 </section>
+
+
+<!-- =======================================================
+     SERVICES
+======================================================= -->
 
 <section class="section reveal" id="services">
-<div class="section-title"><div class="index">02 / Services</div><h2>Engineering, light & infrastructure — integrated.</h2></div>
-<div class="services">
-<article class="service">
-<div class="service-no">01 / 05</div><div class="service-visual"><div class="photo-label">MEP / Building Systems</div></div>
-<div class="service-info"><div class="label">Engineering</div><h3>MEP<br>Engineering</h3><p>Building services engineered around reliability, coordination and practical site execution. We support electrical, HVAC and plumbing requirements as part of a wider technical environment.</p><div class="service-points"><span>Electrical</span><span>HVAC</span><span>Plumbing</span><span>Coordination</span></div><a href="#contact">Discuss your requirements <span>→</span></a></div>
-</article>
-<article class="service">
-<div class="service-no">02 / 05</div><div class="service-visual"><div class="photo-label">Architectural Lighting</div></div>
-<div class="service-info"><div class="label">Experience</div><h3>Architectural<br>Lighting</h3><p>Lighting designed to work with architecture — from functional interiors to expressive façades, hospitality environments and feature spaces.</p><div class="service-points"><span>Interior</span><span>Façade</span><span>Hospitality</span><span>Feature Lighting</span></div><a href="#contact">Shape the lighting concept <span>→</span></a></div>
-</article>
-<article class="service">
-<div class="service-no">03 / 05</div><div class="service-visual"><div class="photo-label">Automation / Controls</div></div>
-<div class="service-info"><div class="label">Intelligence</div><h3>Automation &<br>Controls</h3><p>Smart control environments that bring scenes, schedules, sensors and connected systems into a more responsive building experience.</p><div class="service-points"><span>Smart Control</span><span>Scenes</span><span>Scheduling</span><span>Sensors</span></div><a href="#contact">Plan an intelligent system <span>→</span></a></div>
-</article>
-<article class="service">
-<div class="service-no">04 / 05</div><div class="service-visual"><div class="photo-label">ELV / Networking</div></div>
-<div class="service-info"><div class="label">Infrastructure</div><h3>ELV &<br>Networking</h3><p>Connected low-voltage infrastructure supporting security, communications and reliable digital connectivity across modern environments.</p><div class="service-points"><span>CCTV</span><span>Access Control</span><span>Networking</span><span>ELV</span></div><a href="#contact">Build the technical backbone <span>→</span></a></div>
-</article>
-<article class="service">
-<div class="service-no">05 / 05</div><div class="service-visual"><div class="photo-label">Digital Media</div></div>
-<div class="service-info"><div class="label">Visual Technology</div><h3>Digital Signage<br>& Media</h3><p>LED screens, digital signage and media display systems that turn physical spaces into communication platforms and visual experiences.</p><div class="service-points"><span>LED Screens</span><span>Digital Signage</span><span>Media Displays</span><span>Content Systems</span></div><a href="#contact">Create the visual layer <span>→</span></a></div>
-</article>
-</div>
+
+    <div class="section-title">
+
+        <div class="index">
+            02 / Services
+        </div>
+
+        <h2>
+            Engineering, light & infrastructure — integrated.
+        </h2>
+
+    </div>
+
+    <div class="services">
+
+        <!-- SERVICE 01 -->
+
+        <article class="service">
+
+            <div class="service-no">
+                01 / 05
+            </div>
+
+            <div class="service-visual">
+
+                <div class="photo-label">
+                    MEP / Building Systems
+                </div>
+
+            </div>
+
+            <div class="service-info">
+
+                <div class="label">
+                    Engineering
+                </div>
+
+                <h3>
+                    MEP<br>
+                    Engineering
+                </h3>
+
+                <p>
+                    Building services engineered around reliability,
+                    coordination and practical site execution. We support
+                    electrical, HVAC and plumbing requirements as part of a
+                    wider technical environment.
+                </p>
+
+                <div class="service-points">
+                    <span>Electrical</span>
+                    <span>HVAC</span>
+                    <span>Plumbing</span>
+                    <span>Coordination</span>
+                </div>
+
+                <a href="#contact">
+                    Discuss your requirements
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICE 02 -->
+
+        <article class="service">
+
+            <div class="service-no">
+                02 / 05
+            </div>
+
+            <div class="service-visual">
+
+                <div class="photo-label">
+                    Architectural Lighting
+                </div>
+
+            </div>
+
+            <div class="service-info">
+
+                <div class="label">
+                    Experience
+                </div>
+
+                <h3>
+                    Architectural<br>
+                    Lighting
+                </h3>
+
+                <p>
+                    Lighting designed to work with architecture — from
+                    functional interiors to expressive façades, hospitality
+                    environments and feature spaces.
+                </p>
+
+                <div class="service-points">
+                    <span>Interior</span>
+                    <span>Façade</span>
+                    <span>Hospitality</span>
+                    <span>Feature Lighting</span>
+                </div>
+
+                <a href="#contact">
+                    Shape the lighting concept
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICE 03 -->
+
+        <article class="service">
+
+            <div class="service-no">
+                03 / 05
+            </div>
+
+            <div class="service-visual">
+
+                <div class="photo-label">
+                    Automation / Controls
+                </div>
+
+            </div>
+
+            <div class="service-info">
+
+                <div class="label">
+                    Intelligence
+                </div>
+
+                <h3>
+                    Automation &<br>
+                    Controls
+                </h3>
+
+                <p>
+                    Smart control environments that bring scenes, schedules,
+                    sensors and connected systems into a more responsive
+                    building experience.
+                </p>
+
+                <div class="service-points">
+                    <span>Smart Control</span>
+                    <span>Scenes</span>
+                    <span>Scheduling</span>
+                    <span>Sensors</span>
+                </div>
+
+                <a href="#contact">
+                    Plan an intelligent system
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICE 04 -->
+
+        <article class="service">
+
+            <div class="service-no">
+                04 / 05
+            </div>
+
+            <div class="service-visual">
+
+                <div class="photo-label">
+                    ELV / Networking
+                </div>
+
+            </div>
+
+            <div class="service-info">
+
+                <div class="label">
+                    Infrastructure
+                </div>
+
+                <h3>
+                    ELV &<br>
+                    Networking
+                </h3>
+
+                <p>
+                    Connected low-voltage infrastructure supporting security,
+                    communications and reliable digital connectivity across
+                    modern environments.
+                </p>
+
+                <div class="service-points">
+                    <span>CCTV</span>
+                    <span>Access Control</span>
+                    <span>Networking</span>
+                    <span>ELV</span>
+                </div>
+
+                <a href="#contact">
+                    Build the technical backbone
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICE 05 -->
+
+        <article class="service">
+
+            <div class="service-no">
+                05 / 05
+            </div>
+
+            <div class="service-visual">
+
+                <div class="photo-label">
+                    Digital Media
+                </div>
+
+            </div>
+
+            <div class="service-info">
+
+                <div class="label">
+                    Visual Technology
+                </div>
+
+                <h3>
+                    Digital Signage<br>
+                    & Media
+                </h3>
+
+                <p>
+                    LED screens, digital signage and media display systems that
+                    turn physical spaces into communication platforms and
+                    visual experiences.
+                </p>
+
+                <div class="service-points">
+                    <span>LED Screens</span>
+                    <span>Digital Signage</span>
+                    <span>Media Displays</span>
+                    <span>Content Systems</span>
+                </div>
+
+                <a href="#contact">
+                    Create the visual layer
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
 </section>
+
+
+<!-- =======================================================
+     APPROACH
+======================================================= -->
 
 <section class="section about reveal" id="approach">
-<div class="section-title"><div class="index">03 / Approach</div><h2>Clear thinking. Coordinated delivery. Built around the project.</h2></div>
-<div class="process">
-<div class="step"><div class="step-no">01</div><h3>Discover</h3><p>Understand the brief, building, user experience and technical constraints before defining the solution.</p></div>
-<div class="step"><div class="step-no">02</div><h3>Design</h3><p>Translate requirements into a coordinated technical direction covering systems, interfaces, infrastructure and visual intent.</p></div>
-<div class="step"><div class="step-no">03</div><h3>Engineer</h3><p>Develop the practical solution with attention to integration, compatibility, performance and site realities.</p></div>
-<div class="step"><div class="step-no">04</div><h3>Deliver</h3><p>Coordinate supply, installation, configuration and commissioning so the intended system becomes a working environment.</p></div>
-<div class="step"><div class="step-no">05</div><h3>Support</h3><p>Stay focused on the long-term performance of the installed technology and the people responsible for operating it.</p></div>
-</div>
+
+    <div class="section-title">
+
+        <div class="index">
+            03 / Approach
+        </div>
+
+        <h2>
+            Clear thinking. Coordinated delivery. Built around the project.
+        </h2>
+
+    </div>
+
+    <div class="process">
+
+        <div class="step">
+            <div class="step-no">01</div>
+            <h3>Discover</h3>
+            <p>
+                Understand the brief, building, user experience and technical
+                constraints before defining the solution.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-no">02</div>
+            <h3>Design</h3>
+            <p>
+                Translate requirements into a coordinated technical direction
+                covering systems, interfaces, infrastructure and visual intent.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-no">03</div>
+            <h3>Engineer</h3>
+            <p>
+                Develop the practical solution with attention to integration,
+                compatibility, performance and site realities.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-no">04</div>
+            <h3>Deliver</h3>
+            <p>
+                Coordinate supply, installation, configuration and commissioning
+                so the intended system becomes a working environment.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-no">05</div>
+            <h3>Support</h3>
+            <p>
+                Stay focused on the long-term performance of the installed
+                technology and the people responsible for operating it.
+            </p>
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- =======================================================
+     SECTORS
+======================================================= -->
 
 <section class="section reveal" id="sectors">
-<div class="section-title"><div class="index">04 / Environments</div><h2>Solutions shaped for the way spaces are used.</h2></div>
-<p class="intro">Different environments demand different technical priorities. AstraSix can bring together the relevant disciplines around commercial, residential and experience-led projects.</p>
-<div class="sectors">
-<article class="sector"><span>01 / Commercial</span><h3>Workplaces & offices</h3><p>Connected infrastructure, lighting, controls and digital communication.</p></article>
-<article class="sector"><span>02 / Hospitality</span><h3>Hotels & guest spaces</h3><p>Lighting, automation and technology designed around comfort and atmosphere.</p></article>
-<article class="sector"><span>03 / Residential</span><h3>Homes & private spaces</h3><p>Integrated building systems with intelligent control and considered lighting.</p></article>
-<article class="sector"><span>04 / Retail</span><h3>Brands & experiences</h3><p>Digital displays, lighting and technology that support customer experience.</p></article>
-<article class="sector"><span>05 / Public</span><h3>Large environments</h3><p>Robust infrastructure and visual technology for high-visibility spaces.</p></article>
-<article class="sector"><span>06 / Architecture</span><h3>Designed environments</h3><p>Technical systems coordinated with the intent of the architecture.</p></article>
-<article class="sector"><span>07 / Mixed Use</span><h3>Complex developments</h3><p>Multiple systems and user requirements brought into one technical direction.</p></article>
-<article class="sector"><span>08 / Experience</span><h3>Media-led spaces</h3><p>LED, signage, lighting and control systems for visual impact.</p></article>
-</div>
+
+    <div class="section-title">
+
+        <div class="index">
+            04 / Environments
+        </div>
+
+        <h2>
+            Solutions shaped for the way spaces are used.
+        </h2>
+
+    </div>
+
+    <p class="intro">
+        Different environments demand different technical priorities.
+        AstraSix can bring together the relevant disciplines around commercial,
+        residential and experience-led projects.
+    </p>
+
+    <div class="sectors">
+
+        <article class="sector">
+            <span>01 / Commercial</span>
+            <h3>Workplaces & offices</h3>
+            <p>
+                Connected infrastructure, lighting, controls and digital communication.
+            </p>
+        </article>
+
+        <article class="sector">
+            <span>02 / Hospitality</span>
+            <h3>Hotels & guest spaces</h3>
+            <p>
+                Lighting, automation and technology designed around comfort and atmosphere.
+            </p>
+        </article>
+
+        <article class="sector">
+            <span>03 / Residential</span>
+            <h3>Homes & private spaces</h3>
+            <p>
+                Integrated building systems with intelligent control and considered lighting.
+            </p>
+        </article>
+
+        <article class="sector">
+            <span>04 / Retail</span>
+            <h3>Brands & experiences</h3>
+            <p>
+                Digital displays, lighting and technology that support customer experience.
+            </p>
+        </article>
+
+        <article class="sector">
+            <span>05 / Public</span>
+            <h3>Large environments</h3>
+            <p>
+                Robust infrastructure and visual technology for high-visibility spaces.
+            </p>
+        </article>
+
+        <article class="sector">
+            <span>06 / Architecture</span>
+            <h3>Designed environments</h3>
+            <p>
+                Technical systems coordinated with the intent of the architecture.
+            </p>
+        </article>
+
+        <article class="sector">
+            <span>07 / Mixed Use</span>
+            <h3>Complex developments</h3>
+            <p>
+                Multiple systems and user requirements brought into one technical direction.
+            </p>
+        </article>
+
+        <article class="sector">
+            <span>08 / Experience</span>
+            <h3>Media-led spaces</h3>
+            <p>
+                LED, signage, lighting and control systems for visual impact.
+            </p>
+        </article>
+
+    </div>
+
 </section>
+
+
+<!-- =======================================================
+     PROJECTS
+======================================================= -->
 
 <section class="section reveal" id="projects">
-<div class="section-title"><div class="index">05 / Experience</div><h2>Technology should disappear into the architecture — until the moment it needs to be seen.</h2></div>
-<div class="projects">
-<article class="project one"><div class="project-bg"></div><div class="project-content"><div class="tag">Hospitality / Lighting</div><h3>Atmosphere by design.</h3><p>Layered architectural lighting and intelligent control for guest-facing environments.</p></div></article>
-<div>
-<article class="project small two"><div class="project-bg"></div><div class="project-content"><div class="tag">Smart Buildings</div><h3>Connected operation.</h3><p>Controls and automation that make systems easier to manage.</p></div></article>
-<article class="project small three" style="margin-top:16px"><div class="project-bg"></div><div class="project-content"><div class="tag">Digital Media</div><h3>Architecture in motion.</h3><p>LED and digital display technology for expressive environments.</p></div></article>
-</div>
-</div>
-<p class="note">Illustrative capability directions — replace with verified project photography, client names and measurable results as the portfolio is approved.</p>
+
+    <div class="section-title">
+
+        <div class="index">
+            05 / Experience
+        </div>
+
+        <h2>
+            Technology should disappear into the architecture —
+            until the moment it needs to be seen.
+        </h2>
+
+    </div>
+
+    <div class="projects">
+
+        <article class="project one">
+
+            <div class="project-bg"></div>
+
+            <div class="project-content">
+
+                <div class="tag">
+                    Hospitality / Lighting
+                </div>
+
+                <h3>
+                    Atmosphere by design.
+                </h3>
+
+                <p>
+                    Layered architectural lighting and intelligent control
+                    for guest-facing environments.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <div class="project-stack">
+
+            <article class="project small two">
+
+                <div class="project-bg"></div>
+
+                <div class="project-content">
+
+                    <div class="tag">
+                        Smart Buildings
+                    </div>
+
+                    <h3>
+                        Connected operation.
+                    </h3>
+
+                    <p>
+                        Controls and automation that make systems easier to manage.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="project small three">
+
+                <div class="project-bg"></div>
+
+                <div class="project-content">
+
+                    <div class="tag">
+                        Digital Media
+                    </div>
+
+                    <h3>
+                        Architecture in motion.
+                    </h3>
+
+                    <p>
+                        LED and digital display technology for expressive environments.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+    <p class="note">
+        Illustrative capability directions — replace with verified project
+        photography, client names and measurable results as the portfolio is approved.
+    </p>
+
 </section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
 
 <section class="cta reveal" id="contact">
-<div class="cta-inner">
-<div class="index">06 / Start a project</div>
-<h2>Let's build something<br><em>intelligent.</em></h2>
-<div class="cta-row">
-<p class="cta-text">Have a project in Dubai or across the UAE? Share the brief, drawings, scope or simply the idea. AstraSix can help turn the requirement into a coordinated technical direction.</p>
-<a class="cta-button" href="mailto:info@astrasix.ae">Start<br>project →</a>
-</div>
-</div>
+
+    <div class="cta-inner">
+
+        <div class="index">
+            06 / Start a project
+        </div>
+
+        <h2>
+            Let's build something<br>
+            <em>intelligent.</em>
+        </h2>
+
+        <div class="cta-row">
+
+            <p class="cta-text">
+                Have a project in Dubai or across the UAE?
+                Share the brief, drawings, scope or simply the idea.
+                AstraSix can help turn the requirement into a coordinated
+                technical direction.
+            </p>
+
+            <a
+                class="cta-button"
+                href="mailto:info@astrasix.ae">
+                Start<br>
+                project →
+            </a>
+
+        </div>
+
+    </div>
+
 </section>
+
 </main>
 
-<footer><span>© 2026 AstraSix Technical Services LLC</span><span class="footer-right">info@astrasix.ae · +971 50 650 9738<br><a href="https://unsplash.com/license" target="_blank" rel="noopener">Photography: Unsplash License</a> · <a href="https://unsplash.com/photos/lighting-fixtures-are-attached-to-a-buildings-exterior-fQiF9lFiVpE" target="_blank" rel="noopener">Image source</a></span></footer>
 
-<script>
-(()=>{
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
-const menu=document.getElementById('menu');
-const nav=document.getElementById('nav');
-menu.addEventListener('click',()=>nav.classList.toggle('show'));
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('show')));
-const style=document.createElement('style');
-style.textContent='@media(max-width:800px){nav.show{display:flex;position:absolute;top:58px;right:15px;background:#080808;border:1px solid #333;padding:18px;flex-direction:column;gap:18px;min-width:180px}}';
-document.head.appendChild(style);
-})();
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    <span>
+        © 2026 AstraSix Technical Services LLC
+    </span>
+
+    <span class="footer-right">
+
+        info@astrasix.ae · +971 50 650 9738<br>
+
+        <a
+            href="https://unsplash.com/license"
+            target="_blank"
+            rel="noopener noreferrer">
+            Photography: Unsplash License
+        </a>
+
+        ·
+
+        <a
+            href="https://unsplash.com/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Image source
+        </a>
+
+    </span>
+
+</footer>
+
+
+<!-- =======================================================
+     THREE.JS
+======================================================= -->
+
+<script type="module">
+
+/*
+=========================================================
+   ASTRA SIX — INTERACTIVE 3D HERO
+=========================================================
+
+   Features:
+   - WebGL architectural grid
+   - Floating building structures
+   - Accent lighting
+   - Mouse interaction
+   - Smooth camera movement
+   - Animated particles
+   - Responsive
+   - Automatic fallback if WebGL fails
+=========================================================
+*/
+
+import * as THREE from
+'https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
+
+const canvas = document.getElementById('hero3d');
+
+if(canvas){
+
+    let renderer;
+    let scene;
+    let camera;
+    let animationFrame;
+
+    const mouse = {
+        x:0,
+        y:0
+    };
+
+    const targetMouse = {
+        x:0,
+        y:0
+    };
+
+    const clock = new THREE.Clock();
+
+    try{
+
+        /* =================================================
+           RENDERER
+        ================================================= */
+
+        renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias:true,
+            alpha:true,
+            powerPreference:'high-performance'
+        });
+
+        renderer.setPixelRatio(
+            Math.min(window.devicePixelRatio,2)
+        );
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+
+        renderer.outputColorSpace =
+            THREE.SRGBColorSpace;
+
+
+        /* =================================================
+           SCENE
+        ================================================= */
+
+        scene = new THREE.Scene();
+
+        scene.fog = new THREE.FogExp2(
+            0x050505,
+            0.025
+        );
+
+
+        /* =================================================
+           CAMERA
+        ================================================= */
+
+        camera = new THREE.PerspectiveCamera(
+            42,
+            window.innerWidth / window.innerHeight,
+            .1,
+            100
+        );
+
+        camera.position.set(
+            0,
+            1.8,
+            10
+        );
+
+
+        /* =================================================
+           LIGHTING
+        ================================================= */
+
+        const ambient = new THREE.AmbientLight(
+            0xffffff,
+            .45
+        );
+
+        scene.add(ambient);
+
+
+        const accentLight = new THREE.PointLight(
+            0xd8ff00,
+            12,
+            25
+        );
+
+        accentLight.position.set(
+            4,
+            4,
+            3
+        );
+
+        scene.add(accentLight);
+
+
+        const whiteLight = new THREE.PointLight(
+            0xffffff,
+            7,
+            25
+        );
+
+        whiteLight.position.set(
+            -5,
+            2,
+            5
+        );
+
+        scene.add(whiteLight);
+
+
+        /* =================================================
+           MAIN ARCHITECTURAL GROUP
+        ================================================= */
+
+        const buildingGroup = new THREE.Group();
+
+        buildingGroup.rotation.y = -.15;
+
+        scene.add(buildingGroup);
+
+
+        /* =================================================
+           BUILDING MATERIALS
+        ================================================= */
+
+        const buildingMaterial =
+            new THREE.MeshStandardMaterial({
+                color:0x111313,
+                roughness:.72,
+                metalness:.35,
+                transparent:true,
+                opacity:.88
+            });
+
+
+        const darkMaterial =
+            new THREE.MeshStandardMaterial({
+                color:0x080909,
+                roughness:.8,
+                metalness:.15
+            });
+
+
+        const accentMaterial =
+            new THREE.MeshStandardMaterial({
+                color:0xd8ff00,
+                emissive:0xd8ff00,
+                emissiveIntensity:3,
+                metalness:.25,
+                roughness:.35
+            });
+
+
+        /* =================================================
+           BUILDING FACTORY
+        ================================================= */
+
+        function createBuilding(
+            width,
+            height,
+            depth,
+            x,
+            z
+        ){
+
+            const geometry =
+                new THREE.BoxGeometry(
+                    width,
+                    height,
+                    depth
+                );
+
+            const building =
+                new THREE.Mesh(
+                    geometry,
+                    buildingMaterial
+                );
+
+            building.position.set(
+                x,
+                height / 2 - 1.2,
+                z
+            );
+
+            buildingGroup.add(building);
+
+
+            /* vertical accent */
+
+            const accentGeometry =
+                new THREE.BoxGeometry(
+                    .035,
+                    height * .9,
+                    .035
+                );
+
+            const accent =
+                new THREE.Mesh(
+                    accentGeometry,
+                    accentMaterial
+                );
+
+            accent.position.set(
+                x - width / 2 + .15,
+                height / 2 - 1.2,
+                z - depth / 2 - .02
+            );
+
+            buildingGroup.add(accent);
+
+
+            /* horizontal floors */
+
+            for(
+                let y = -height / 2 + .7;
+                y < height / 2;
+                y += .65
+            ){
+
+                const lineGeometry =
+                    new THREE.BoxGeometry(
+                        width * .92,
+                        .012,
+                        .018
+                    );
+
+                const line =
+                    new THREE.Mesh(
+                        lineGeometry,
+                        accentMaterial
+                    );
+
+                line.position.set(
+                    x,
+                    y + height / 2 - 1.2,
+                    z - depth / 2 - .025
+                );
+
+                line.scale.x =
+                    .25 + Math.random() * .75;
+
+                line.material =
+                    line.material.clone();
+
+                line.material.opacity =
+                    .35 + Math.random() * .65;
+
+                line.material.transparent = true;
+
+                buildingGroup.add(line);
+            }
+        }
+
+
+        createBuilding(
+            2.5,
+            5.5,
+            1.7,
+            -2.6,
+            0
+        );
+
+        createBuilding(
+            3.1,
+            7.5,
+            2,
+            .2,
+            -.5
+        );
+
+        createBuilding(
+            2,
+            4.2,
+            1.5,
+            2.8,
+            .2
+        );
+
+
+        /* =================================================
+           FLOOR
+        ================================================= */
+
+        const floorGeometry =
+            new THREE.PlaneGeometry(
+                28,
+                28,
+                30,
+                30
+            );
+
+        const floorMaterial =
+            new THREE.MeshBasicMaterial({
+                color:0x161818,
+                wireframe:true,
+                transparent:true,
+                opacity:.13
+            });
+
+        const floor =
+            new THREE.Mesh(
+                floorGeometry,
+                floorMaterial
+            );
+
+        floor.rotation.x =
+            -Math.PI / 2;
+
+        floor.position.y =
+            -1.22;
+
+        scene.add(floor);
+
+
+        /* =================================================
+           FLOATING ARCHITECTURAL FRAME
+        ================================================= */
+
+        const frameMaterial =
+            new THREE.LineBasicMaterial({
+                color:0xd8ff00,
+                transparent:true,
+                opacity:.35
+            });
+
+        const frameGeometry =
+            new THREE.BoxGeometry(
+                7,
+                6,
+                4
+            );
+
+        const frame =
+            new THREE.LineSegments(
+                new THREE.EdgesGeometry(
+                    frameGeometry
+                ),
+                frameMaterial
+            );
+
+        frame.position.set(
+            0,
+            1.7,
+            -.8
+        );
+
+        frame.rotation.y =
+            .18;
+
+        scene.add(frame);
+
+
+        /* =================================================
+           PARTICLES
+        ================================================= */
+
+        const particleCount = 650;
+
+        const particlePositions =
+            new Float32Array(
+                particleCount * 3
+            );
+
+        for(
+            let i = 0;
+            i < particleCount;
+            i++
+        ){
+
+            particlePositions[i * 3] =
+                (Math.random() - .5) * 18;
+
+            particlePositions[i * 3 + 1] =
+                (Math.random() - .5) * 10;
+
+            particlePositions[i * 3 + 2] =
+                (Math.random() - .5) * 10;
+        }
+
+        const particleGeometry =
+            new THREE.BufferGeometry();
+
+        particleGeometry.setAttribute(
+            'position',
+            new THREE.BufferAttribute(
+                particlePositions,
+                3
+            )
+        );
+
+        const particleMaterial =
+            new THREE.PointsMaterial({
+                color:0xd8ff00,
+                size:.018,
+                transparent:true,
+                opacity:.55,
+                blending:
+                    THREE.AdditiveBlending
+            });
+
+        const particles =
+            new THREE.Points(
+                particleGeometry,
+                particleMaterial
+            );
+
+        scene.add(particles);
+
+
+        /* =================================================
+           MOUSE
+        ================================================= */
+
+        window.addEventListener(
+            'pointermove',
+            event => {
+
+                targetMouse.x =
+                    (event.clientX /
+                    window.innerWidth) * 2 - 1;
+
+                targetMouse.y =
+                    -(event.clientY /
+                    window.innerHeight) * 2 + 1;
+            },
+            {passive:true}
+        );
+
+
+        /* =================================================
+           RESIZE
+        ================================================= */
+
+        window.addEventListener(
+            'resize',
+            () => {
+
+                camera.aspect =
+                    window.innerWidth /
+                    window.innerHeight;
+
+                camera.updateProjectionMatrix();
+
+                renderer.setSize(
+                    window.innerWidth,
+                    window.innerHeight
+                );
+
+                renderer.setPixelRatio(
+                    Math.min(
+                        window.devicePixelRatio,
+                        2
+                    )
+                );
+
+            },
+            {passive:true}
+        );
+
+
+        /* =================================================
+           ANIMATION
+        ================================================= */
+
+        function animate(){
+
+            animationFrame =
+                requestAnimationFrame(
+                    animate
+                );
+
+            const elapsed =
+                clock.getElapsedTime();
+
+
+            /* smooth mouse */
+
+            mouse.x +=
+                (targetMouse.x - mouse.x)
+                * .035;
+
+            mouse.y +=
+                (targetMouse.y - mouse.y)
+                * .035;
+
+
+            /* building movement */
+
+            buildingGroup.rotation.y =
+                -.15 +
+                mouse.x * .08;
+
+            buildingGroup.rotation.x =
+                mouse.y * .025;
+
+
+            /* frame */
+
+            frame.rotation.y =
+                .18 +
+                mouse.x * .12;
+
+            frame.rotation.x =
+                mouse.y * .04;
+
+
+            /* particles */
+
+            particles.rotation.y =
+                elapsed * .008;
+
+            particles.rotation.x =
+                Math.sin(elapsed * .1) * .02;
+
+
+            /* camera */
+
+            camera.position.x +=
+                (
+                    mouse.x * 1.1 -
+                    camera.position.x
+                ) * .025;
+
+            camera.position.y +=
+                (
+                    1.8 +
+                    mouse.y * .55 -
+                    camera.position.y
+                ) * .025;
+
+            camera.lookAt(
+                0,
+                1.4,
+                0
+            );
+
+
+            /* accent light */
+
+            accentLight.position.x =
+                4 + mouse.x * 3;
+
+            accentLight.position.y =
+                4 + mouse.y * 2;
+
+
+            renderer.render(
+                scene,
+                camera
+            );
+        }
+
+        animate();
+
+    }catch(error){
+
+        console.warn(
+            '3D hero unavailable:',
+            error
+        );
+
+        canvas.style.display='none';
+    }
+}
+
+
+/* =========================================================
+   SCROLL REVEALS
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add('in');
+
+                    observer.unobserve(
+                        entry.target
+                    );
+                }
+
+            });
+
+        },
+        {
+            threshold:.1
+        }
+    );
+
+document
+    .querySelectorAll('.reveal')
+    .forEach(element => {
+        observer.observe(element);
+    });
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menu =
+    document.getElementById('menu');
+
+const nav =
+    document.getElementById('nav');
+
+function closeMenu(){
+
+    nav.classList.remove('show');
+
+    menu.setAttribute(
+        'aria-expanded',
+        'false'
+    );
+
+    menu.setAttribute(
+        'aria-label',
+        'Open menu'
+    );
+
+    document.body.classList.remove(
+        'menu-open'
+    );
+}
+
+function toggleMenu(){
+
+    const open =
+        nav.classList.toggle('show');
+
+    menu.setAttribute(
+        'aria-expanded',
+        String(open)
+    );
+
+    menu.setAttribute(
+        'aria-label',
+        open
+            ? 'Close menu'
+            : 'Open menu'
+    );
+
+    document.body.classList.toggle(
+        'menu-open',
+        open
+    );
+}
+
+menu.addEventListener(
+    'click',
+    toggleMenu
+);
+
+
+/* close after navigation */
+
+nav.querySelectorAll('a')
+    .forEach(link => {
+
+        link.addEventListener(
+            'click',
+            closeMenu
+        );
+
+    });
+
+
+/* close with Escape */
+
+document.addEventListener(
+    'keydown',
+    event => {
+
+        if(event.key === 'Escape'){
+
+            closeMenu();
+
+        }
+
+    }
+);
+
+
+/* close when clicking outside */
+
+document.addEventListener(
+    'click',
+    event => {
+
+        if(
+            window.innerWidth <= 800 &&
+            nav.classList.contains('show') &&
+            !nav.contains(event.target) &&
+            !menu.contains(event.target)
+        ){
+
+            closeMenu();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        'main section[id]'
+    );
+
+const navLinks =
+    document.querySelectorAll(
+        'nav a'
+    );
+
+const sectionObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    navLinks.forEach(link => {
+
+                        link.classList.remove(
+                            'active'
+                        );
+
+                        if(
+                            link.getAttribute(
+                                'href'
+                            ) ===
+                            '#' + entry.target.id
+                        ){
+
+                            link.classList.add(
+                                'active'
+                            );
+                        }
+
+                    });
+
+                }
+
+            });
+
+        },
+        {
+            rootMargin:'-35% 0px -55% 0px'
+        }
+    );
+
+sections.forEach(section => {
+
+    sectionObserver.observe(section);
+
+});
+
 </script>
+
 </body>
 </html>
+```
