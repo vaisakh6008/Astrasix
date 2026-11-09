@@ -1638,6 +1638,547 @@ footer{
     }
 }
 
+
+/* =========================================================
+   ASTRA SIX — INTERACTIVE EXPERIENCE EXTENSION
+   Added without removing the original design/content.
+========================================================= */
+
+:root{
+    --accent-soft:rgba(216,255,0,.10);
+    --panel:#090b0b;
+    --panel-2:#0e1010;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    z-index:9997;
+    pointer-events:none;
+    background:radial-gradient(
+        420px circle at var(--mx,50%) var(--my,50%),
+        rgba(216,255,0,.055),
+        transparent 68%
+    );
+}
+
+.scroll-progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:2px;
+    z-index:10002;
+    background:var(--accent);
+    box-shadow:0 0 18px rgba(216,255,0,.55);
+}
+
+.header-status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-left:auto;
+    margin-right:24px;
+    color:#73777c;
+    font-size:9px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.header-status-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 12px rgba(216,255,0,.8);
+    animation:statusPulse 1.8s infinite;
+}
+
+@keyframes statusPulse{
+    0%,100%{opacity:.45;transform:scale(.85)}
+    50%{opacity:1;transform:scale(1)}
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:30px;
+}
+
+.hero-action{
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+    padding:12px 17px;
+    border:1px solid #383b3d;
+    background:rgba(5,5,5,.34);
+    backdrop-filter:blur(8px);
+    font-size:10px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    transition:.3s ease;
+}
+
+.hero-action:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:translateY(-3px);
+}
+
+.hero-action.primary{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#050505;
+}
+
+.hero-action.primary:hover{
+    color:#050505;
+    background:#efff8a;
+}
+
+.marquee{
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:#080909;
+}
+
+.marquee-track{
+    display:flex;
+    width:max-content;
+    gap:42px;
+    padding:15px 0;
+    animation:marquee 28s linear infinite;
+}
+
+.marquee-item{
+    white-space:nowrap;
+    color:#7d8186;
+    font-family:Manrope,sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.marquee-item strong{color:var(--accent);font-weight:500}
+
+@keyframes marquee{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+}
+
+.interactive-panel{
+    margin-top:90px;
+    border:1px solid var(--line);
+    background:var(--panel);
+}
+
+.interactive-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    border-bottom:1px solid var(--line);
+}
+
+.interactive-tab{
+    border:0;
+    border-right:1px solid var(--line);
+    background:transparent;
+    color:#73777b;
+    padding:15px 18px;
+    cursor:pointer;
+    font-size:9px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    transition:.25s ease;
+}
+
+.interactive-tab:hover,
+.interactive-tab.active{
+    background:var(--accent);
+    color:#050505;
+}
+
+.interactive-content{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    min-height:330px;
+}
+
+.interactive-copy{padding:42px}
+
+.interactive-copy h3{
+    font-family:Manrope,sans-serif;
+    font-size:clamp(30px,4vw,58px);
+    font-weight:500;
+    letter-spacing:-.055em;
+    line-height:.95;
+}
+
+.interactive-copy p{
+    max-width:650px;
+    margin-top:18px;
+    color:#888c91;
+    line-height:1.75;
+}
+
+.interactive-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:25px;
+}
+
+.interactive-list span{
+    padding:7px 10px;
+    border:1px solid #292c2e;
+    color:#85898e;
+    font-size:10px;
+}
+
+.interactive-visual{
+    position:relative;
+    min-height:330px;
+    overflow:hidden;
+    border-left:1px solid var(--line);
+    background:
+        radial-gradient(circle at 50% 45%,rgba(216,255,0,.17),transparent 25%),
+        linear-gradient(135deg,#111414,#070808);
+}
+
+.interactive-visual::before,
+.interactive-visual::after{
+    content:'';
+    position:absolute;
+    inset:16%;
+    border:1px solid rgba(216,255,0,.17);
+    transform:rotate(18deg);
+    animation:orbitBox 11s linear infinite;
+}
+
+.interactive-visual::after{
+    inset:27%;
+    transform:rotate(-18deg);
+    animation-direction:reverse;
+    animation-duration:7s;
+}
+
+@keyframes orbitBox{
+    to{transform:rotate(378deg)}
+}
+
+.visual-label{
+    position:absolute;
+    left:22px;
+    bottom:18px;
+    z-index:2;
+    color:#74787c;
+    font-size:9px;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+}
+
+.metrics-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    margin-top:65px;
+    border:1px solid var(--line);
+    background:var(--line);
+}
+
+.metric-card{
+    min-height:150px;
+    padding:27px;
+    background:#090a0a;
+}
+
+.metric-number{
+    color:var(--accent);
+    font-family:Manrope,sans-serif;
+    font-size:clamp(34px,4vw,58px);
+    font-weight:500;
+    letter-spacing:-.06em;
+}
+
+.metric-label{
+    margin-top:7px;
+    color:#7f8388;
+    font-size:10px;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+}
+
+.metric-note{
+    margin-top:11px;
+    color:#606469;
+    font-size:11px;
+}
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    margin-top:70px;
+    border:1px solid var(--line);
+    background:var(--line);
+}
+
+.value-card{
+    min-height:245px;
+    padding:31px;
+    background:#080909;
+    transition:.35s ease;
+}
+
+.value-card:hover{
+    background:#101212;
+    transform:translateY(-5px);
+}
+
+.value-icon{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border:1px solid #36393a;
+    color:var(--accent);
+    font-size:13px;
+}
+
+.value-card h3{
+    margin-top:38px;
+    font-family:Manrope,sans-serif;
+    font-size:24px;
+    font-weight:500;
+    letter-spacing:-.04em;
+}
+
+.value-card p{
+    margin-top:11px;
+    color:#85898e;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.faq-list{
+    margin-top:75px;
+    border-top:1px solid var(--line);
+}
+
+.faq-item{border-bottom:1px solid var(--line)}
+
+.faq-question{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:23px 0;
+    border:0;
+    background:transparent;
+    color:var(--fg);
+    text-align:left;
+    cursor:pointer;
+    font-family:Manrope,sans-serif;
+    font-size:clamp(18px,2vw,26px);
+}
+
+.faq-symbol{
+    flex:0 0 auto;
+    color:var(--accent);
+    font-size:24px;
+    transition:.3s ease;
+}
+
+.faq-answer{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .35s ease;
+}
+
+.faq-answer > div{overflow:hidden}
+
+.faq-answer p{
+    max-width:780px;
+    padding:0 0 0;
+    color:#85898e;
+    line-height:1.75;
+}
+
+.faq-item.open .faq-answer{grid-template-rows:1fr}
+.faq-item.open .faq-answer p{padding-bottom:25px}
+.faq-item.open .faq-symbol{transform:rotate(45deg)}
+
+.inquiry-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    margin-top:80px;
+}
+
+.inquiry-copy h3{
+    font-family:Manrope,sans-serif;
+    font-size:clamp(32px,4.5vw,62px);
+    font-weight:500;
+    letter-spacing:-.055em;
+    line-height:.95;
+}
+
+.inquiry-copy p{
+    max-width:520px;
+    margin-top:20px;
+    color:#85898e;
+    line-height:1.75;
+}
+
+.contact-points{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    margin-top:35px;
+    border:1px solid var(--line);
+    background:var(--line);
+}
+
+.contact-point{
+    padding:20px;
+    background:#090a0a;
+}
+
+.contact-point small{
+    display:block;
+    color:#65696d;
+    font-size:9px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.contact-point strong{
+    display:block;
+    margin-top:8px;
+    color:#ddd;
+    font-size:13px;
+    font-weight:500;
+}
+
+.inquiry-form{
+    padding:28px;
+    border:1px solid var(--line);
+    background:#090a0a;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.form-field{margin-bottom:12px}
+
+.form-field label{
+    display:block;
+    margin-bottom:7px;
+    color:#707479;
+    font-size:9px;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea{
+    width:100%;
+    border:1px solid #292c2e;
+    outline:none;
+    background:#060707;
+    color:#eee;
+    padding:12px 13px;
+    font:inherit;
+    font-size:12px;
+    transition:.25s ease;
+}
+
+.form-field textarea{min-height:125px;resize:vertical}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(216,255,0,.06);
+}
+
+.form-submit{
+    width:100%;
+    border:1px solid var(--accent);
+    background:var(--accent);
+    color:#050505;
+    padding:14px 16px;
+    cursor:pointer;
+    font-size:10px;
+    letter-spacing:1.7px;
+    text-transform:uppercase;
+    transition:.25s ease;
+}
+
+.form-submit:hover{background:#efff8a}
+
+.form-status{
+    min-height:18px;
+    margin-top:10px;
+    color:#85898e;
+    font-size:10px;
+}
+
+.back-top{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:900;
+    width:45px;
+    height:45px;
+    border:1px solid #3b3e40;
+    background:rgba(5,5,5,.78);
+    color:#aaa;
+    backdrop-filter:blur(8px);
+    cursor:pointer;
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(10px);
+    transition:.3s ease;
+}
+
+.back-top.show{
+    opacity:1;
+    pointer-events:auto;
+    transform:none;
+}
+
+.back-top:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
+@media(max-width:900px){
+    .metrics-grid{grid-template-columns:1fr 1fr}
+    .values-grid{grid-template-columns:1fr 1fr}
+    .interactive-content{grid-template-columns:1fr}
+    .interactive-visual{border-left:0;border-top:1px solid var(--line)}
+    .inquiry-wrap{grid-template-columns:1fr}
+}
+
+@media(max-width:800px){
+    .header-status{display:none}
+    .hero-actions{margin-top:24px}
+    .metrics-grid,
+    .values-grid{grid-template-columns:1fr}
+    .form-row{grid-template-columns:1fr}
+    .interactive-tabs{overflow:auto;flex-wrap:nowrap}
+    .interactive-tab{white-space:nowrap}
+    .back-top{right:15px;bottom:15px}
+}
+
 </style>
 </head>
 
@@ -1695,6 +2236,12 @@ footer{
 
         <a href="#contact">Contact</a>
 
+        <a href="#capabilities">Capabilities</a>
+
+        <a href="#why">Why Us</a>
+
+        <a href="#faq">FAQ</a>
+
     </nav>
 
 
@@ -1746,6 +2293,12 @@ footer{
         </h1>
 
 
+
+        <div class="hero-actions">
+            <a class="hero-action primary" href="#services">Explore services <span>↘</span></a>
+            <a class="hero-action" href="#enquiry">Start a project <span>→</span></a>
+        </div>
+
         <div class="hero-bottom">
 
             <p class="hero-copy">
@@ -1771,6 +2324,23 @@ footer{
     </div>
 
 </section>
+
+<div class="marquee" aria-label="AstraSix capabilities">
+    <div class="marquee-track">
+        <span class="marquee-item"><strong>MEP</strong> Engineering</span>
+        <span class="marquee-item"><strong>Lighting</strong> Design & Control</span>
+        <span class="marquee-item"><strong>Automation</strong> & Smart Systems</span>
+        <span class="marquee-item"><strong>ELV</strong> & Networking</span>
+        <span class="marquee-item"><strong>Digital</strong> Signage & Media</span>
+        <span class="marquee-item"><strong>AMC</strong> & Technical Support</span>
+        <span class="marquee-item"><strong>MEP</strong> Engineering</span>
+        <span class="marquee-item"><strong>Lighting</strong> Design & Control</span>
+        <span class="marquee-item"><strong>Automation</strong> & Smart Systems</span>
+        <span class="marquee-item"><strong>ELV</strong> & Networking</span>
+        <span class="marquee-item"><strong>Digital</strong> Signage & Media</span>
+        <span class="marquee-item"><strong>AMC</strong> & Technical Support</span>
+    </div>
+</div>
 
 
 <!-- =======================================================
@@ -2591,6 +3161,346 @@ footer{
 </section>
 
 
+
+<!-- =======================================================
+     INTERACTIVE CAPABILITIES
+======================================================= -->
+
+<section class="section reveal" id="capabilities">
+
+    <div class="section-title">
+        <div class="index">07 / Capabilities</div>
+        <h2>Explore the systems that turn a building into an intelligent environment.</h2>
+    </div>
+
+    <p class="intro">
+        AstraSix combines physical infrastructure, digital control and visual
+        technology into a coordinated technical layer. Use the categories below
+        to explore how the disciplines can work together.
+    </p>
+
+    <div class="interactive-panel">
+
+        <div class="interactive-tabs" role="tablist">
+            <button class="interactive-tab active" data-capability="integration" type="button">Integration</button>
+            <button class="interactive-tab" data-capability="lighting" type="button">Lighting</button>
+            <button class="interactive-tab" data-capability="automation" type="button">Automation</button>
+            <button class="interactive-tab" data-capability="network" type="button">Connectivity</button>
+            <button class="interactive-tab" data-capability="media" type="button">Media</button>
+        </div>
+
+        <div class="interactive-content">
+            <div class="interactive-copy">
+                <div class="index" id="capability-index">SYSTEM / 01</div>
+                <h3 id="capability-title">Everything connected by design.</h3>
+                <p id="capability-description">
+                    The strongest environments are not a collection of isolated
+                    systems. We coordinate the technical layers so lighting,
+                    controls, networks, media and building services can operate
+                    as one experience.
+                </p>
+                <div class="interactive-list" id="capability-list">
+                    <span>System Coordination</span>
+                    <span>Interface Planning</span>
+                    <span>Commissioning</span>
+                    <span>Lifecycle Support</span>
+                </div>
+            </div>
+            <div class="interactive-visual">
+                <div class="visual-label" id="capability-label">Integrated technical environment</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-number" data-count="05">0</div>
+            <div class="metric-label">Core disciplines</div>
+            <div class="metric-note">Engineering + technology + experience</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number" data-count="08">0</div>
+            <div class="metric-label">Environment types</div>
+            <div class="metric-note">Commercial, hospitality, retail and more</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number" data-count="24">0</div>
+            <div class="metric-label">Support mindset</div>
+            <div class="metric-note">Designed for operation after handover</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number" data-count="360">0</div>
+            <div class="metric-label">View of the project</div>
+            <div class="metric-note">From infrastructure to user experience</div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     WHY ASTRASIX
+======================================================= -->
+
+<section class="section about reveal" id="why">
+
+    <div class="section-title">
+        <div class="index">08 / Why AstraSix</div>
+        <h2>Technical depth without losing sight of the experience.</h2>
+    </div>
+
+    <div class="values-grid">
+
+        <article class="value-card">
+            <div class="value-icon">01</div>
+            <h3>One coordinated direction.</h3>
+            <p>
+                Reduce technical fragmentation by bringing multiple disciplines
+                under one coordinated project conversation.
+            </p>
+        </article>
+
+        <article class="value-card">
+            <div class="value-icon">02</div>
+            <h3>Site-aware thinking.</h3>
+            <p>
+                Solutions are shaped around real buildings, existing systems,
+                access constraints, commissioning requirements and operation.
+            </p>
+        </article>
+
+        <article class="value-card">
+            <div class="value-icon">03</div>
+            <h3>Technology with purpose.</h3>
+            <p>
+                Smart controls, lighting and media are selected to improve
+                performance, usability and the character of the environment.
+            </p>
+        </article>
+
+        <article class="value-card">
+            <div class="value-icon">04</div>
+            <h3>Built for handover.</h3>
+            <p>
+                Documentation, configuration and practical support matter just
+                as much as installation when a project moves into operation.
+            </p>
+        </article>
+
+        <article class="value-card">
+            <div class="value-icon">05</div>
+            <h3>Scalable by design.</h3>
+            <p>
+                Create a technical foundation that can adapt as spaces,
+                technology and operational requirements evolve.
+            </p>
+        </article>
+
+        <article class="value-card">
+            <div class="value-icon">06</div>
+            <h3>UAE focused.</h3>
+            <p>
+                A locally focused technical approach for projects, teams and
+                environments across Dubai and the wider UAE.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     FAQ
+======================================================= -->
+
+<section class="section reveal" id="faq">
+
+    <div class="section-title">
+        <div class="index">09 / FAQ</div>
+        <h2>Questions before we start?</h2>
+    </div>
+
+    <div class="faq-list">
+
+        <article class="faq-item">
+            <button class="faq-question" type="button">
+                <span>Can AstraSix work with an existing system?</span>
+                <span class="faq-symbol">+</span>
+            </button>
+            <div class="faq-answer">
+                <div>
+                    <p>
+                        Yes. Existing installations can be assessed, documented,
+                        reconfigured or integrated where technically feasible.
+                        The exact approach depends on the installed equipment,
+                        protocols, drawings, site condition and access to the
+                        existing control infrastructure.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article class="faq-item">
+            <button class="faq-question" type="button">
+                <span>Do you support commissioning and programming?</span>
+                <span class="faq-symbol">+</span>
+            </button>
+            <div class="faq-answer">
+                <div>
+                    <p>
+                        Commissioning, configuration and programming can form part
+                        of the project scope. Testing is coordinated against the
+                        approved design, available site infrastructure and the
+                        manufacturer's system requirements.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article class="faq-item">
+            <button class="faq-question" type="button">
+                <span>Can you provide AMC and technical support?</span>
+                <span class="faq-symbol">+</span>
+            </button>
+            <div class="faq-answer">
+                <div>
+                    <p>
+                        Yes. Ongoing technical support and AMC-style service
+                        requirements can be structured around the installed
+                        systems, response requirements and operational needs of
+                        the facility.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article class="faq-item">
+            <button class="faq-question" type="button">
+                <span>Where does AstraSix operate?</span>
+                <span class="faq-symbol">+</span>
+            </button>
+            <div class="faq-answer">
+                <div>
+                    <p>
+                        AstraSix is positioned as a UAE-focused technical
+                        services company, with Dubai as a key operating market
+                        and capability to support projects across the UAE.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article class="faq-item">
+            <button class="faq-question" type="button">
+                <span>What should I send for a project discussion?</span>
+                <span class="faq-symbol">+</span>
+            </button>
+            <div class="faq-answer">
+                <div>
+                    <p>
+                        A brief, drawings, BOQ, existing system information,
+                        photos, site details or even a simple description of the
+                        requirement is enough to begin the conversation.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PROJECT ENQUIRY
+======================================================= -->
+
+<section class="section reveal" id="enquiry">
+
+    <div class="section-title">
+        <div class="index">10 / Enquiry</div>
+        <h2>Tell us what you are building, upgrading or solving.</h2>
+    </div>
+
+    <div class="inquiry-wrap">
+
+        <div class="inquiry-copy">
+            <div class="index">PROJECT BRIEF</div>
+            <h3>Start with the requirement. We'll help shape the direction.</h3>
+            <p>
+                Use the quick enquiry form to prepare a project email. No
+                complicated portal — just the information that helps a technical
+                team understand the opportunity.
+            </p>
+
+            <div class="contact-points">
+                <div class="contact-point">
+                    <small>Email</small>
+                    <strong>Info@AstraSix.ae</strong>
+                </div>
+                <div class="contact-point">
+                    <small>Location</small>
+                    <strong>Dubai · UAE</strong>
+                </div>
+                <div class="contact-point">
+                    <small>Scope</small>
+                    <strong>Engineering + Technology</strong>
+                </div>
+                <div class="contact-point">
+                    <small>Response</small>
+                    <strong>Project discussion</strong>
+                </div>
+            </div>
+        </div>
+
+        <form class="inquiry-form" id="inquiryForm">
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="clientName">Name</label>
+                    <input id="clientName" name="name" type="text" placeholder="Your name" required>
+                </div>
+                <div class="form-field">
+                    <label for="clientCompany">Company</label>
+                    <input id="clientCompany" name="company" type="text" placeholder="Company name">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="clientEmail">Email</label>
+                    <input id="clientEmail" name="email" type="email" placeholder="you@company.com" required>
+                </div>
+                <div class="form-field">
+                    <label for="projectType">Project type</label>
+                    <select id="projectType" name="project">
+                        <option>General enquiry</option>
+                        <option>MEP Engineering</option>
+                        <option>Architectural Lighting</option>
+                        <option>Automation & Controls</option>
+                        <option>ELV & Networking</option>
+                        <option>Digital Signage & Media</option>
+                        <option>AMC / Technical Support</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label for="clientMessage">Requirement</label>
+                <textarea id="clientMessage" name="message" placeholder="Tell us about the project, location, existing system or requirement..." required></textarea>
+            </div>
+
+            <button class="form-submit" type="submit">Prepare project email →</button>
+            <div class="form-status" id="formStatus" aria-live="polite"></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
 <!-- =======================================================
      CONTACT
 ======================================================= -->
@@ -2656,7 +3566,7 @@ footer{
 
     <span class="footer-right">
 
-        info@astrasix.ae · +971 50 650 9738
+        Info@AstraSix.ae · +971 50 650 9738
 
         <br>
 
@@ -3763,6 +4673,261 @@ sections.forEach(
     }
 
 );
+
+
+/* =========================================================
+   ASTRA SIX — INTERACTIVE EXPERIENCE JS
+========================================================= */
+
+/* Scroll progress */
+const progressBar = document.createElement('div');
+progressBar.className = 'scroll-progress';
+document.body.appendChild(progressBar);
+
+const updateScrollProgress = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progressBar.style.width = progress + '%';
+};
+
+window.addEventListener('scroll', updateScrollProgress, {passive:true});
+updateScrollProgress();
+
+
+/* Pointer spotlight */
+window.addEventListener('pointermove', event => {
+    document.body.style.setProperty('--mx', event.clientX + 'px');
+    document.body.style.setProperty('--my', event.clientY + 'px');
+}, {passive:true});
+
+
+/* Hero action buttons */
+document.querySelectorAll('[data-scroll]').forEach(button => {
+    button.addEventListener('click', () => {
+        const target = document.querySelector(button.dataset.scroll);
+        if(target) target.scrollIntoView({behavior:'smooth'});
+    });
+});
+
+
+/* Interactive capability explorer */
+const capabilityData = {
+    integration: {
+        index:'SYSTEM / 01',
+        title:'Everything connected by design.',
+        description:'The strongest environments are not a collection of isolated systems. We coordinate the technical layers so lighting, controls, networks, media and building services can operate as one experience.',
+        list:['System Coordination','Interface Planning','Commissioning','Lifecycle Support'],
+        label:'Integrated technical environment'
+    },
+    lighting: {
+        index:'SYSTEM / 02',
+        title:'Light that responds to the architecture.',
+        description:'Architectural lighting can be treated as both infrastructure and experience — with scenes, zones and controls supporting the way people move through a space.',
+        list:['Architectural Lighting','Scene Control','Dimming','Façade & Feature'],
+        label:'Architectural lighting layer'
+    },
+    automation: {
+        index:'SYSTEM / 03',
+        title:'Buildings that respond intelligently.',
+        description:'Automation connects schedules, sensors, scenes and user controls so spaces can respond to occupancy, time, operational requirements and changing conditions.',
+        list:['Sensors','Scenes','Schedules','Smart Controls'],
+        label:'Automation and control layer'
+    },
+    network: {
+        index:'SYSTEM / 04',
+        title:'A dependable technical backbone.',
+        description:'Modern systems rely on dependable connectivity. Networking and ELV infrastructure create the foundation for devices, controls, security and digital services to communicate.',
+        list:['Networking','ELV','CCTV','Access Control'],
+        label:'Connectivity infrastructure'
+    },
+    media: {
+        index:'SYSTEM / 05',
+        title:'Make the digital layer visible.',
+        description:'Digital signage, LED and media systems transform walls and spaces into communication and experience platforms — from information displays to immersive visual environments.',
+        list:['LED','Digital Signage','Media Displays','Content Systems'],
+        label:'Digital media environment'
+    }
+};
+
+const capabilityIndex = document.getElementById('capability-index');
+const capabilityTitle = document.getElementById('capability-title');
+const capabilityDescription = document.getElementById('capability-description');
+const capabilityList = document.getElementById('capability-list');
+const capabilityLabel = document.getElementById('capability-label');
+
+document.querySelectorAll('.interactive-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const key = tab.dataset.capability;
+        const data = capabilityData[key];
+        if(!data) return;
+
+        document.querySelectorAll('.interactive-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        capabilityIndex.textContent = data.index;
+        capabilityTitle.textContent = data.title;
+        capabilityDescription.textContent = data.description;
+        capabilityLabel.textContent = data.label;
+        capabilityList.innerHTML = data.list.map(item => `<span>${item}</span>`).join('');
+
+        capabilityTitle.animate(
+            [
+                {opacity:.15, transform:'translateY(10px)'},
+                {opacity:1, transform:'translateY(0)'}
+            ],
+            {duration:350, easing:'ease-out'}
+        );
+    });
+});
+
+
+/* Animated metric counters */
+const metricNumbers = document.querySelectorAll('.metric-number');
+
+const animateCounter = element => {
+    const target = Number(element.dataset.count || 0);
+    const duration = 1000;
+    const start = performance.now();
+
+    const tick = now => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = Math.round(target * eased).toString().padStart(target < 10 ? 2 : 1, '0');
+        if(progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+};
+
+const metricObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            animateCounter(entry.target);
+            metricObserver.unobserve(entry.target);
+        }
+    });
+}, {threshold:.5});
+
+metricNumbers.forEach(item => metricObserver.observe(item));
+
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const item = question.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-question')?.setAttribute('aria-expanded','false');
+        });
+
+        if(!wasOpen){
+            item.classList.add('open');
+            question.setAttribute('aria-expanded','true');
+        }
+    });
+});
+
+
+/* Inquiry form -> email composer */
+const inquiryForm = document.getElementById('inquiryForm');
+const formStatus = document.getElementById('formStatus');
+
+if(inquiryForm){
+    inquiryForm.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const name = document.getElementById('clientName').value.trim();
+        const company = document.getElementById('clientCompany').value.trim();
+        const email = document.getElementById('clientEmail').value.trim();
+        const project = document.getElementById('projectType').value;
+        const message = document.getElementById('clientMessage').value.trim();
+
+        const subject = encodeURIComponent(`Project Enquiry — ${project}`);
+        const body = encodeURIComponent(
+`Hello AstraSix Team,
+
+I would like to discuss a project.
+
+Name: ${name}
+Company: ${company || 'Not provided'}
+Email: ${email}
+Project Type: ${project}
+
+Requirement:
+${message}
+
+Regards,
+${name}`
+        );
+
+        window.location.href = `mailto:Info@AstraSix.ae?subject=${subject}&body=${body}`;
+        formStatus.textContent = 'Opening your email application with the project brief…';
+    });
+}
+
+
+/* Back to top */
+const backTop = document.createElement('button');
+backTop.className = 'back-top';
+backTop.type = 'button';
+backTop.setAttribute('aria-label','Back to top');
+backTop.textContent = '↑';
+document.body.appendChild(backTop);
+
+window.addEventListener('scroll', () => {
+    backTop.classList.toggle('show', window.scrollY > 700);
+}, {passive:true});
+
+backTop.addEventListener('click', () => {
+    window.scrollTo({top:0, behavior:'smooth'});
+});
+
+
+/* Active nav support for newly added sections */
+const extraNavTargets = ['capabilities','why','faq','enquiry'];
+const existingNav = document.getElementById('nav');
+
+if(existingNav){
+    extraNavTargets.forEach(id => {
+        if(!existingNav.querySelector(`a[href="#${id}"]`)){
+            const a = document.createElement('a');
+            a.href = '#' + id;
+            a.textContent = ({
+                capabilities:'Capabilities',
+                why:'Why Us',
+                faq:'FAQ',
+                enquiry:'Enquiry'
+            })[id];
+            existingNav.appendChild(a);
+            a.addEventListener('click', closeMenu);
+        }
+    });
+}
+
+
+/* Keyboard-friendly capability tabs */
+document.querySelectorAll('.interactive-tab').forEach((tab, index, tabs) => {
+    tab.setAttribute('role','tab');
+    tab.setAttribute('aria-selected', tab.classList.contains('active') ? 'true' : 'false');
+
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+    });
+
+    tab.addEventListener('keydown', event => {
+        if(event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+        event.preventDefault();
+
+        const direction = event.key === 'ArrowRight' ? 1 : -1;
+        const next = (index + direction + tabs.length) % tabs.length;
+        tabs[next].focus();
+        tabs[next].click();
+    });
+});
+
 
 </script>
 
